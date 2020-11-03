@@ -8,7 +8,6 @@ namespace Fall2020_CSC403_Project {
   static class Program {
         /// <summary>
         /// The main entry point for the application.
-        /// /// this is a test
         /// </summary>
         [STAThread]
     static void Main() {
