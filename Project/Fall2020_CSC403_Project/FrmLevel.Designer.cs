@@ -106,9 +106,9 @@
             this.picPotion.BackColor = System.Drawing.Color.Transparent;
             this.picPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion;
             this.picPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPotion.Location = new System.Drawing.Point(890, 397);
+            this.picPotion.Location = new System.Drawing.Point(500, 200); // 1000, 600
             this.picPotion.Name = "picpotion";
-            this.picPotion.Size = new System.Drawing.Size(100, 107);
+            this.picPotion.Size = new System.Drawing.Size(40, 50);
             this.picPotion.TabIndex = 5;
             this.picPotion.TabStop = false;
             // 
@@ -180,14 +180,14 @@
             // 
             // picWall12
             // 
-            //this.picWall12.BackColor = System.Drawing.Color.Transparent;
-            //this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            //this.picWall12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.picWall12.Location = new System.Drawing.Point(890, 397);
-            //this.picWall12.Name = "picWall12";
-            //this.picWall12.Size = new System.Drawing.Size(203, 113);
-            //this.picWall12.TabIndex = 8;
-            //this.picWall12.TabStop = false;
+            this.picWall12.BackColor = System.Drawing.Color.Transparent;
+            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall12.Location = new System.Drawing.Point(890, 397);
+            this.picWall12.Name = "picWall12";
+            this.picWall12.Size = new System.Drawing.Size(203, 113);
+            this.picWall12.TabIndex = 8;
+            this.picWall12.TabStop = false;
             // 
             // picWall6
             // 

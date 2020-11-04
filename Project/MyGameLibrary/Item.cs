@@ -22,8 +22,8 @@ namespace Fall2020_CSC403_Project.code
 
         public Item(Vector2 initPos, Collider collider)
         {
-            //Position = initPos;
-            //Collider = collider;
+            Position = initPos;
+            Collider = collider;
         }
     }
 }

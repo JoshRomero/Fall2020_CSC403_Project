@@ -10,11 +10,12 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
-    private Enemy potion;
+    private Item potion;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmPick_UP frmPick_Up;
 
     public FrmLevel() {
       InitializeComponent();
@@ -28,7 +29,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      potion = new Enemy(CreatePosition(picPotion), CreateCollider(picPotion, PADDING));
+      potion = new Item(CreatePosition(picPotion), CreateCollider(picPotion, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -88,9 +89,9 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
-      else if (HitAChar(player, potion))
+      else if (HitAItem(player, potion))
       {
-          Fight(potion);
+          //Pick_Up(potion);
       }
 
             // update player's picture box
@@ -111,19 +112,31 @@ namespace Fall2020_CSC403_Project {
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
-
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
-
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
+    private bool HitAItem(Character you, Item other)
+    {
+        return you.Collider.Intersects(other.Collider);
     }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+        private void Fight(Enemy enemy) {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
+
+            if (enemy == bossKoolaid) {
+                frmBattle.SetupForBossBattle();
+            }
+        }
+        private void Pick_Up(Item item)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmPick_Up = frmPick_Up.GetInstance(item);
+            frmBattle.Show();
+
+        }
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
