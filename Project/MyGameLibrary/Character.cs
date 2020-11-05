@@ -23,6 +23,11 @@ namespace Fall2020_CSC403_Project.code {
       Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
       Collider.MovePosition((int)Position.x, (int)Position.y);
     }
+    public void death()
+        {
+            Position = new Vector2(-100, -100);
+            Collider.MovePosition(-100, -100);
+        }
 
     public void MoveBack() {
       Position = LastPosition;

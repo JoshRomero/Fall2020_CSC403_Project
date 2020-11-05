@@ -24,8 +24,24 @@ namespace Fall2020_CSC403_Project.code {
       AttackEvent((int)(amount * strength));
     }
 
-    public void AlterHealth(int amount) {
-      Health += amount;
+    public void AlterHealth(int amount, string act = null) {
+            if (act == "heal")
+            {
+
+                if (Health <= (MaxHealth - amount))
+                {
+                    Health += amount;
+                }
+                else
+                {
+                    Health += (MaxHealth - Health);
+                }
+            }
+            else
+            {
+                Health += amount;
+            }
+
     }
   }
 }

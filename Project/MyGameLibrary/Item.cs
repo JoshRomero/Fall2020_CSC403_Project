@@ -25,5 +25,11 @@ namespace Fall2020_CSC403_Project.code
             Position = initPos;
             Collider = collider;
         }
+
+        public void remove_item()
+        {
+            Position = new Vector2(-100, -100);
+            Collider.MovePosition(-100, -100);
+        }
     }
 }

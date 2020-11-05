@@ -4,7 +4,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+    public partial class FrmLevel : Form
+    {
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -15,8 +16,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-    private FrmPick_UP frmPick_Up;
-
+    private Frm_Pick_Up1 frm_Pick_Up;
     public FrmLevel() {
       InitializeComponent();
     }
@@ -29,12 +29,12 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      potion = new Item(CreatePosition(picPotion), CreateCollider(picPotion, PADDING));
+      potion = new Item(CreatePosition(pictpotion), CreateCollider(pictpotion, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-      potion.Img = picPotion.BackgroundImage;
+      potion.Img = pictpotion.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
@@ -91,7 +91,7 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAItem(player, potion))
       {
-          //Pick_Up(potion);
+          Pick_Up(potion);
       }
 
             // update player's picture box
@@ -131,9 +131,10 @@ namespace Fall2020_CSC403_Project {
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmPick_Up = frmPick_Up.GetInstance(item);
-            frmBattle.Show();
-
+            frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
+            potion.remove_item();
+            pictpotion.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+            frm_Pick_Up.Show();
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

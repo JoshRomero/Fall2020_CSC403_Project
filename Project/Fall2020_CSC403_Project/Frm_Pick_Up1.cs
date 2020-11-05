@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class Frm_Pick_Up1 : Form
     {
+        private bool potion_picked = true;
         public static Frm_Pick_Up1 instance = null;
         private Player player;
         private Item item;
@@ -22,9 +24,13 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
+        public bool potion_status()
+        {
+            return potion_picked;
+        }
         public void Setup()
         {
-            // update for this enemy
+            // update for this item
             picPotion.BackgroundImage = item.Img;
             picPotion.Refresh();
             BackColor = item.Color;
@@ -42,6 +48,9 @@ namespace Fall2020_CSC403_Project
         }
         private void Pick_Up_Click(object sender, EventArgs e)
         {
+            player.bag.add_item();
+            instance = null;
+            Close();
             
         }
     }

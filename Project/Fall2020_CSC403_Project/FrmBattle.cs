@@ -71,12 +71,24 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
+      enemy.Position = 
+                    osition = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
+      instance = null;
         Close();
       }
     }
+    private void btnpotion_Click(object sender, EventArgs e)
+    {
+        if (player.bag.get_bag_size() > 0)
+            {
+                player.bag.use_item();
+                player.AlterHealth(5, "heal");
+                UpdateHealthBars();
+                
+            }
+    }
 
-    private void EnemyDamage(int amount) {
+        private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
@@ -84,7 +96,7 @@ namespace Fall2020_CSC403_Project {
       player.AlterHealth(amount);
     }
 
-    private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+      private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
@@ -94,5 +106,7 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
     }
 }
+

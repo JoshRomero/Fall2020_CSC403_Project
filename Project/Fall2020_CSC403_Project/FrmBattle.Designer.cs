@@ -31,9 +31,14 @@
             this.lblEnemyHealthFull = new System.Windows.Forms.Label();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnpotion = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAttack
@@ -109,10 +114,41 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // picBossBattle
+            // 
+            this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
+            this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBossBattle.Location = new System.Drawing.Point(780, 563);
+            this.picBossBattle.Name = "picBossBattle";
+            this.picBossBattle.Size = new System.Drawing.Size(30, 28);
+            this.picBossBattle.TabIndex = 7;
+            this.picBossBattle.TabStop = false;
+            this.picBossBattle.Visible = false;
+            // 
             // tmrFinalBattle
             // 
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
+            // 
+            // btnpotion
+            // 
+            this.btnpotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnpotion.Location = new System.Drawing.Point(127, 485);
+            this.btnpotion.Name = "btnpotion";
+            this.btnpotion.Size = new System.Drawing.Size(128, 43);
+            this.btnpotion.TabIndex = 7;
+            this.btnpotion.Text = "Potion";
+            this.btnpotion.UseVisualStyleBackColor = true;
+            this.btnpotion.Click += new System.EventHandler(this.btnpotion_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(72, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "label3";
             // 
             // FrmBattle
             // 
@@ -121,6 +157,8 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnpotion);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPlayerHealthFull);
@@ -135,7 +173,9 @@
             this.Load += new System.EventHandler(this.FrmBattle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -143,7 +183,6 @@
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
-    //private System.Windows.Forms.PictureBox picPotion;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
@@ -151,5 +190,8 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnpotion;
+        private System.Windows.Forms.Label label3;
+    }
 }
