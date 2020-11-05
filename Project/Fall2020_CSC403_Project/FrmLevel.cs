@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
@@ -23,7 +24,7 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
-      const int NUM_WALLS = 12;
+      const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -72,7 +73,16 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
-      player.Move();
+      if (player.status)
+            {
+                player.Move();
+            }
+       else
+            {
+                player.Move();
+                Thread.Sleep(5000);
+                Close();
+            }
 
       // check collision with walls
       if (HitAWall(player)) {
@@ -81,14 +91,14 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
+        Fight(enemyPoisonPacket);      
+            }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
-      }
+            }
       else if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
-      }
+            }
       else if (HitAItem(player, potion))
       {
           Pick_Up(potion);
@@ -96,7 +106,10 @@ namespace Fall2020_CSC403_Project {
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+            picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+            picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+            picBossKoolAid.Location = new Point((int)bossKoolaid.Position.x, (int)bossKoolaid.Position.y);
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;

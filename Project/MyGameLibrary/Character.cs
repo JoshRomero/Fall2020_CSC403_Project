@@ -12,10 +12,12 @@ namespace Fall2020_CSC403_Project.code {
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
-
+    public bool status;
     public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
       Collider = collider;
+      // true = alive | false = dead
+      status = true;
     }
 
     public void Move() {
@@ -25,8 +27,10 @@ namespace Fall2020_CSC403_Project.code {
     }
     public void death()
         {
+            status = false;
             Position = new Vector2(-100, -100);
             Collider.MovePosition(-100, -100);
+            
         }
 
     public void MoveBack() {
