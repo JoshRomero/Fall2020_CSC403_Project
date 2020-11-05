@@ -52,11 +52,11 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel.cs">
+    <Compile Include="FrmLevel_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLevel.Designer.cs">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <Compile Include="FrmLevel_1.Designer.cs">
+      <DependentUpon>FrmLevel_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Pick_Up1.cs">
       <SubType>Form</SubType>
@@ -69,8 +69,8 @@
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel.resx">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLevel_1.resx">
+      <DependentUpon>FrmLevel_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Pick_Up1.resx">
       <DependentUpon>Frm_Pick_Up1.cs</DependentUpon>

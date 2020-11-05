@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Threading;
 
 namespace Fall2020_CSC403_Project {
-    public partial class FrmLevel : Form
+    public partial class FrmLevel_1 : Form
     {
     private Player player;
 
@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private Frm_Pick_Up1 frm_Pick_Up;
-    public FrmLevel() {
+    public FrmLevel_1() {
       InitializeComponent();
     }
 

@@ -35,7 +35,7 @@
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnpotion = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.num_potions = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
@@ -141,14 +141,16 @@
             this.btnpotion.UseVisualStyleBackColor = true;
             this.btnpotion.Click += new System.EventHandler(this.btnpotion_Click);
             // 
-            // label3
+            // num_potions
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
+            this.num_potions.Enabled = false;
+            this.num_potions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num_potions.Location = new System.Drawing.Point(12, 485);
+            this.num_potions.Name = "num_potions";
+            this.num_potions.Size = new System.Drawing.Size(109, 43);
+            this.num_potions.TabIndex = 8;
+            this.num_potions.Text = "# potions";
+            this.num_potions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmBattle
             // 
@@ -156,8 +158,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(822, 603);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(822, 575);
+            this.Controls.Add(this.num_potions);
             this.Controls.Add(this.btnpotion);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -175,7 +177,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
     }
 
@@ -192,6 +193,6 @@
     private System.Windows.Forms.Timer tmrFinalBattle;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnpotion;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label num_potions;
     }
 }

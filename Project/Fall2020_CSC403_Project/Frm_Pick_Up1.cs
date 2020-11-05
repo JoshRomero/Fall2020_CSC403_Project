@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project
 {
     public partial class Frm_Pick_Up1 : Form
     {
-        private bool potion_picked = true;
         public static Frm_Pick_Up1 instance = null;
         private Player player;
         private Item item;
@@ -24,10 +23,6 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
-        public bool potion_status()
-        {
-            return potion_picked;
-        }
         public void Setup()
         {
             // update for this item

@@ -44,6 +44,18 @@ namespace Fall2020_CSC403_Project.code
                 bag_size--;
             }
         }
+        public int num_potions()
+        {
+            int count = 0;
+            foreach (string itm in items)
+            {
+                if (itm == "Healing potion")
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
      
     }
 }

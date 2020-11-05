@@ -11,17 +11,13 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-    private bool player_status;
-    private bool enemy_status;
-    bool[] combat_status;
 
         private FrmBattle() {
       InitializeComponent();
       player = Game.player;
-      player_status = true;
-      enemy_status = true;
-      
-    }
+      UpdatePotionsCount();
+
+        }
 
     public void Setup() {
       // update for this enemy
@@ -58,6 +54,10 @@ namespace Fall2020_CSC403_Project {
       return instance;
     }
 
+    private void UpdatePotionsCount()
+        {
+            num_potions.Text = ("X " + player.bag.num_potions().ToString());
+        }
     private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
       float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
@@ -76,7 +76,6 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
-
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         if (enemy.Health <= 0)
@@ -98,7 +97,8 @@ namespace Fall2020_CSC403_Project {
                 player.bag.use_item("Healing potion");
                 player.AlterHealth(5, "heal");
                 UpdateHealthBars();
-                
+                UpdatePotionsCount();
+
             }
     }
 
@@ -121,6 +121,7 @@ namespace Fall2020_CSC403_Project {
 
         }
 
+        
     }
 }
 
