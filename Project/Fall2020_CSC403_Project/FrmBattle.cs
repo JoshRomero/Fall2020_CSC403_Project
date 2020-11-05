@@ -95,7 +95,7 @@ namespace Fall2020_CSC403_Project {
     {
         if (player.bag.get_bag_size() > 0)
             {
-                player.bag.use_item();
+                player.bag.use_item("Healing potion");
                 player.AlterHealth(5, "heal");
                 UpdateHealthBars();
                 

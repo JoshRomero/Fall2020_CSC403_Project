@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project
         }
         private void Pick_Up_Click(object sender, EventArgs e)
         {
-            player.bag.add_item();
+            player.bag.add_item(item.name);
             instance = null;
             Close();
             

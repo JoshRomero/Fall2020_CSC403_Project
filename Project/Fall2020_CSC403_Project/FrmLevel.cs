@@ -32,6 +32,7 @@ namespace Fall2020_CSC403_Project {
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       potion = new Item(CreatePosition(pictpotion), CreateCollider(pictpotion, PADDING));
 
+      potion.name = "Healing potion";
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
