@@ -63,6 +63,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bat {
+            get {
+                object obj = ResourceManager.GetObject("bat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap battle_screen {
             get {
                 object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
@@ -76,6 +86,26 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap big_knife {
             get {
                 object obj = ResourceManager.GetObject("big_knife", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cookie {
+            get {
+                object obj = ResourceManager.GetObject("Cookie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dracula {
+            get {
+                object obj = ResourceManager.GetObject("Dracula", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

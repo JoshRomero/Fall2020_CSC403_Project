@@ -141,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\big_knife.png" />
+    <None Include="data\Dracula.jpg" />
+    <None Include="data\Cookie.png" />
+    <None Include="data\bat.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />

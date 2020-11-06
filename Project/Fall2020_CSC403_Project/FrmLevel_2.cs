@@ -10,6 +10,8 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
         private Item potion;
+        private Enemy cookieMonster;
+        private Enemy enemyBatie;
         private Character[] walls;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -23,26 +25,32 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 10;
+            const int NUM_WALLS = 9;
 
             // the position of the onject 
             player = new Player(CreatePosition(picPlayer2), CreateCollider(picPlayer2, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
+            cookieMonster = new Enemy(CreatePosition(piccookie), CreateCollider(piccookie, PADDING));
+            enemyBatie = new Enemy(CreatePosition(picbat), CreateCollider(picbat, PADDING));
 
             // name of the items
             potion.name = "Healing potion";
 
             // setting the images for the background when hit
             potion.Img = pictpotion2.BackgroundImage;
+            cookieMonster.Img = piccookie.BackgroundImage;
+            enemyBatie.Img = picbat.BackgroundImage;
 
             // adding the background color when hit
             potion.Color = Color.DeepPink;
+            cookieMonster.Color = Color.Blue;
+            enemyBatie.Color = Color.DarkSlateGray;
 
             walls = new Character[NUM_WALLS];
-            for (int w = 13; w < NUM_WALLS; w++)
+            for (int w = 13; w < NUM_WALLS+13; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                walls[w-13] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
             Game.player = player;
@@ -65,12 +73,12 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
         }
 
-      /*  private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
-            lblInGameTime.Text = "Time: " + time.ToString();
-        }*/
+            lblInGameTime1.Text = "Time: " + time.ToString();
+        }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
@@ -95,8 +103,19 @@ namespace Fall2020_CSC403_Project
             {
                 Pick_Up(potion);
             }
+            // check collision with enemies
+            if (HitAChar(player, enemyBatie))
+            {
+                Fight(enemyBatie);
+            }
+            else if (HitAChar(player, cookieMonster))
+            {
+                Fight(cookieMonster);
+            }
             // update player's picture box
             picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
+            piccookie.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
             //TODO add level 3 
             // if the player passes the boss and exits the screen
             /*if (picPlayer2.Location.X >= 1176)
@@ -135,7 +154,7 @@ namespace Fall2020_CSC403_Project
             frmBattle.Show();
 
             // TODO set boss up
-            /*if (enemy == bossKoolaid)
+            /*if (enemy == cookieMonster)
             {
                 frmBattle.SetupForBossBattle();
             }*/
@@ -180,10 +199,6 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
