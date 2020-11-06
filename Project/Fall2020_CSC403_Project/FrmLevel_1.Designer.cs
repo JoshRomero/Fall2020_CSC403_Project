@@ -132,7 +132,7 @@
             this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picWall2.Location = new System.Drawing.Point(551, 1);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(469, 67);
+            this.picWall2.Size = new System.Drawing.Size(613, 67);
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
             // 

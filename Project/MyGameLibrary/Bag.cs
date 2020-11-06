@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace Fall2020_CSC403_Project.code
         }
         public void use_item(string tool)
         {
+            bool used = false;
             if (bag_size > 0)
             {
                 for (int i = 0; i < bag_size; i++)
@@ -39,9 +41,15 @@ namespace Fall2020_CSC403_Project.code
                     if (tool == items[i])
                     {
                         items.RemoveAt(i);
+                        used = true;
+                        break;
                     }
                 }
-                bag_size--;
+                if (used)
+                {
+                    bag_size--;
+                }
+                
             }
         }
         public int num_potions()

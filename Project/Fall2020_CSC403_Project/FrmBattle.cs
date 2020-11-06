@@ -110,7 +110,7 @@ namespace Fall2020_CSC403_Project
         }
         private void btnpotion_Click(object sender, EventArgs e)
         {
-            if (player.bag.get_bag_size() > 0)
+            if ((player.bag.get_bag_size() > 0) && (player.bag.num_potions() > 0))
             {
                 player.bag.use_item("Healing potion");
                 player.AlterHealth(5, "heal");
