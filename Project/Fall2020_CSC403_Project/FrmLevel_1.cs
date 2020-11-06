@@ -28,11 +28,11 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       // the position of the onject 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      player = new Player(CreatePosition(picPlayer1), CreateCollider(picPlayer1, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      potion = new Item(CreatePosition(pictpotion), CreateCollider(pictpotion, PADDING));
+      potion = new Item(CreatePosition(pictpotion1), CreateCollider(pictpotion1, PADDING));
       knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
       
       // names of the items
@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-      potion.Img = pictpotion.BackgroundImage;
+      potion.Img = pictpotion1.BackgroundImage;
       knife.Img = picbig_knife.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
@@ -118,10 +118,14 @@ namespace Fall2020_CSC403_Project {
         }
 
             // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            picPlayer1.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
             picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
             picBossKoolAid.Location = new Point((int)bossKoolaid.Position.x, (int)bossKoolaid.Position.y);
+            if (picPlayer1.Location.X >= 1176)
+            {
+                Close();
+            }
         }
 
     private bool HitAWall(Character c) {
@@ -161,7 +165,7 @@ namespace Fall2020_CSC403_Project {
             item.remove_item();
             if (item == potion)
             {
-                pictpotion.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+                pictpotion1.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
             }
             else if (item == knife)
             {
