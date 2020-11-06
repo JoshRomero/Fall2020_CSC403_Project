@@ -28,6 +28,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picbig_knife = new System.Windows.Forms.PictureBox();
             this.pictpotion = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
@@ -90,13 +92,23 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
+            // picbig_knife
+            // 
+            this.picbig_knife.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.big_knife;
+            this.picbig_knife.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picbig_knife.Location = new System.Drawing.Point(532, 74);
+            this.picbig_knife.Name = "picbig_knife";
+            this.picbig_knife.Size = new System.Drawing.Size(100, 50);
+            this.picbig_knife.TabIndex = 20;
+            this.picbig_knife.TabStop = false;
+            // 
             // pictpotion
             // 
             this.pictpotion.AccessibleName = "";
             this.pictpotion.BackColor = System.Drawing.Color.Transparent;
             this.pictpotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tpotion;
             this.pictpotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictpotion.Location = new System.Drawing.Point(470, 123);
+            this.pictpotion.Location = new System.Drawing.Point(1030, 600);
             this.pictpotion.Name = "pictpotion";
             this.pictpotion.Size = new System.Drawing.Size(57, 47);
             this.pictpotion.TabIndex = 19;
@@ -289,13 +301,14 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // FrmLevel
+            // FrmLevel_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.picbig_knife);
             this.Controls.Add(this.pictpotion);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -316,12 +329,13 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
-            this.Name = "FrmLevel";
+            this.Name = "FrmLevel_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
@@ -368,6 +382,7 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox pictpotion;
+        private System.Windows.Forms.PictureBox picbig_knife;
     }
 }
 

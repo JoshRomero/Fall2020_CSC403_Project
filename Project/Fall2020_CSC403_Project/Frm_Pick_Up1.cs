@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project
         public Frm_Pick_Up1()
         {
             InitializeComponent();
-            player = Game.player;
+            player = Game.player; 
         }
 
         public void Setup()

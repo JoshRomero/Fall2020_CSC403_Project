@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Item potion;
     private Character[] walls;
+    private Item knife;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -26,22 +27,29 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
+      // the position of the onject 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       potion = new Item(CreatePosition(pictpotion), CreateCollider(pictpotion, PADDING));
-
+      knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
+      
+      // names of the items
       potion.name = "Healing potion";
+      knife.name = "big knife";
+
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       potion.Img = pictpotion.BackgroundImage;
+      knife.Img = picbig_knife.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
       potion.Color = Color.DeepPink;
+      knife.Color = Color.DarkRed;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -104,6 +112,10 @@ namespace Fall2020_CSC403_Project {
       {
           Pick_Up(potion);
       }
+      else if (HitAItem(player, knife))
+        {
+            Pick_Up(knife);
+        }
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -134,7 +146,7 @@ namespace Fall2020_CSC403_Project {
         private void Fight(Enemy enemy) {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, player.bag.has_knife());
             frmBattle.Show();
 
             if (enemy == bossKoolaid) {
@@ -146,8 +158,15 @@ namespace Fall2020_CSC403_Project {
             player.ResetMoveSpeed();
             player.MoveBack();
             frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
-            potion.remove_item();
-            pictpotion.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+            item.remove_item();
+            if (item == potion)
+            {
+                pictpotion.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+            }
+            else if (item == knife)
+            {
+                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+            }
             frm_Pick_Up.Show();
         }
 
