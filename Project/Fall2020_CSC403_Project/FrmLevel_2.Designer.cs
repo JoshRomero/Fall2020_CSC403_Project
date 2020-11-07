@@ -32,7 +32,10 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
+            this.lblInGameTime1 = new System.Windows.Forms.Label();
             this.picbat = new System.Windows.Forms.PictureBox();
+            this.picbig_knife = new System.Windows.Forms.PictureBox();
+            this.picbow = new System.Windows.Forms.PictureBox();
             this.piccookie = new System.Windows.Forms.PictureBox();
             this.pictpotion2 = new System.Windows.Forms.PictureBox();
             this.picWall21 = new System.Windows.Forms.PictureBox();
@@ -45,7 +48,8 @@
             this.picWall16 = new System.Windows.Forms.PictureBox();
             this.picWall14 = new System.Windows.Forms.PictureBox();
             this.picPlayer2 = new System.Windows.Forms.PictureBox();
-            this.lblInGameTime1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piccookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion2)).BeginInit();
@@ -61,30 +65,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer2)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblInGameTime1
-            // 
-            this.lblInGameTime1.AutoSize = true;
-            this.lblInGameTime1.BackColor = System.Drawing.Color.Black;
-            this.lblInGameTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInGameTime1.ForeColor = System.Drawing.Color.White;
-            this.lblInGameTime1.Location = new System.Drawing.Point(12, 9);
-            this.lblInGameTime1.Name = "lblInGameTime1";
-            this.lblInGameTime1.Size = new System.Drawing.Size(46, 18);
-            this.lblInGameTime1.TabIndex = 13;
-            this.lblInGameTime1.Text = "label1";
-           /* // 
             // lblInGameTime
             // 
-            this.lblInGameTime.AutoSize = true;
-            this.lblInGameTime.BackColor = System.Drawing.Color.Black;
-            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-            this.lblInGameTime.Location = new System.Drawing.Point(12, 9);
+            this.lblInGameTime.Location = new System.Drawing.Point(0, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
-            this.lblInGameTime.TabIndex = 2;
-            this.lblInGameTime.Text = "label1";
-            this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);*/
+            this.lblInGameTime.Size = new System.Drawing.Size(100, 23);
+            this.lblInGameTime.TabIndex = 0;
             // 
             // tmrPlayerMove
             // 
@@ -96,6 +82,39 @@
             // 
             this.tmrUpdateInGameTime.Enabled = true;
             this.tmrUpdateInGameTime.Tick += new System.EventHandler(this.tmrUpdateInGameTime_Tick);
+            // 
+            // lblInGameTime1
+            // 
+            this.lblInGameTime1.AutoSize = true;
+            this.lblInGameTime1.BackColor = System.Drawing.Color.Black;
+            this.lblInGameTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInGameTime1.ForeColor = System.Drawing.Color.White;
+            this.lblInGameTime1.Location = new System.Drawing.Point(12, 9);
+            this.lblInGameTime1.Name = "lblInGameTime1";
+            this.lblInGameTime1.Size = new System.Drawing.Size(46, 18);
+            this.lblInGameTime1.TabIndex = 13;
+            this.lblInGameTime1.Text = "label1";
+            // 
+            // picbig_knife
+            // 
+            this.picbig_knife.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.big_knife;
+            this.picbig_knife.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picbig_knife.Location = new System.Drawing.Point(583, 74);
+            this.picbig_knife.Name = "picbig_knife";
+            this.picbig_knife.Size = new System.Drawing.Size(49, 50);
+            this.picbig_knife.TabIndex = 20;
+            this.picbig_knife.TabStop = false;
+            // 
+            // picbow
+            // 
+            this.picbow.BackColor = System.Drawing.Color.Transparent;
+            this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
+            this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picbow.Location = new System.Drawing.Point(1039, 169);
+            this.picbow.Name = "picbow";
+            this.picbow.Size = new System.Drawing.Size(49, 50);
+            this.picbow.TabIndex = 21;
+            this.picbow.TabStop = false;
             // 
             // picbat
             // 
@@ -247,6 +266,8 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.lblInGameTime1);
+            this.Controls.Add(this.picbig_knife);
+            this.Controls.Add(this.picbow);
             this.Controls.Add(this.picbat);
             this.Controls.Add(this.piccookie);
             this.Controls.Add(this.pictpotion2);
@@ -267,6 +288,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picbat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piccookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).EndInit();
@@ -302,5 +325,7 @@
         private System.Windows.Forms.PictureBox piccookie;
         private System.Windows.Forms.PictureBox picbat;
         private System.Windows.Forms.Label lblInGameTime1;
+        private System.Windows.Forms.PictureBox picbig_knife;
+        private System.Windows.Forms.PictureBox picbow;
     }
 }

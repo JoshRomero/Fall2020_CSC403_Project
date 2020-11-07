@@ -15,6 +15,8 @@ namespace Fall2020_CSC403_Project {
     private Item potion;
     private Character[] walls;
     private Item knife;
+    private Item bow;
+    private bool traded;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -26,6 +28,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
+      traded = false;
 
       // the position of the onject 
       player = new Player(CreatePosition(picPlayer1), CreateCollider(picPlayer1, PADDING));
@@ -34,22 +37,30 @@ namespace Fall2020_CSC403_Project {
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       potion = new Item(CreatePosition(pictpotion1), CreateCollider(pictpotion1, PADDING));
       knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
+      bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
       
+      // setting if an item is a weapon of not 
+      knife.is_weapon = true;
+      bow.is_weapon = true;
+      potion.is_weapon = false;
       // names of the items
       potion.name = "Healing potion";
       knife.name = "big knife";
+      bow.name = "long bow";
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       potion.Img = pictpotion1.BackgroundImage;
       knife.Img = picbig_knife.BackgroundImage;
+      bow.Img = picbow.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
       potion.Color = Color.DeepPink;
       knife.Color = Color.DarkRed;
+      bow.Color = Color.DarkGreen;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -89,6 +100,7 @@ namespace Fall2020_CSC403_Project {
        else
             {
                 player.Move();
+                Program.end_game();
                 Thread.Sleep(5000);
                 Close();
             }
@@ -98,24 +110,42 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);      
+            // check collision with enemies
+            if (HitAChar(player, enemyPoisonPacket)) {
+                Fight(enemyPoisonPacket);
             }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+            else if (HitAChar(player, enemyCheeto)) {
+                Fight(enemyCheeto);
             }
-      else if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+            else if (HitAChar(player, bossKoolaid)) {
+                Fight(bossKoolaid);
             }
-      else if (HitAItem(player, potion))
-      {
-          Pick_Up(potion);
-      }
-      else if (HitAItem(player, knife))
-        {
-            Pick_Up(knife);
+            else if (HitAItem(player, potion))
+            {
+                Pick_Up(potion);
+            }
+            else if (HitAItem(player, knife))
+            {
+                if (player.bag.has_weapon())
+                {
+                    Pick_Up(knife, bow);
+                }
+                else
+                {
+                    Pick_Up(knife);
+                }
         }
+      else if (HitAItem(player, bow))
+      {
+                if (player.bag.has_weapon())
+                {
+                    Pick_Up(bow, knife);
+                }
+                else
+                {
+                    Pick_Up(bow);
+                }
+            }
 
             // update player's picture box
             picPlayer1.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -124,6 +154,7 @@ namespace Fall2020_CSC403_Project {
             picBossKoolAid.Location = new Point((int)bossKoolaid.Position.x, (int)bossKoolaid.Position.y);
             if (picPlayer1.Location.X >= 1176)
             {
+                Program.change_level(2);
                 Close();
             }
         }
@@ -150,56 +181,99 @@ namespace Fall2020_CSC403_Project {
         private void Fight(Enemy enemy) {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy, player.bag.has_knife());
+
+            frmBattle = FrmBattle.GetInstance(enemy, player.bag.current_weapon);
             frmBattle.Show();
 
             if (enemy == bossKoolaid) {
                 frmBattle.SetupForBossBattle();
             }
         }
-        private void Pick_Up(Item item)
+        private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
-            item.remove_item();
-            if (item == potion)
+            if (item.is_weapon && player.bag.has_weapon() && item2 != null)
+            {
+                frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
+                if (item.name == "big knife")
+                {
+
+                    traded = item2.drop_item((int)knife.Position.x, (int)knife.Position.y);
+                    item.remove_item();
+                }
+                else if (item.name == "long bow")
+                {
+                    traded = item2.drop_item((int)bow.Position.x, (int)bow.Position.y);
+                    item.remove_item();
+                }
+
+            }
+            else
+            {
+                frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
+                item.remove_item();
+            }
+            
+            if (!item.is_weapon)
             {
                 pictpotion1.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
             }
-            else if (item == knife)
+            else if (item.is_weapon)
             {
-                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+                if (traded)
+                {
+                    if (item2.name == "big knife")
+                    {
+                        picbig_knife.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
+                        picbow.Location = new Point((int)item.Position.x, (int)item.Position.y);
+                    }
+                    else if (item2.name == "long bow")
+                    {
+                        picbow.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
+                        picbig_knife.Location = new Point((int)item.Position.x, (int)item.Position.y);
+                    }
+                }
+                else
+                {
+                    if (item.name == "big knife")
+                    {
+                        picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+                    }
+                    else if (item.name == "long bow")
+                    {
+                        picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+                    }
+                }
             }
+
             frm_Pick_Up.Show();
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+                case Keys.Right:
+                    player.GoRight();
+                    break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+                case Keys.Up:
+                    player.GoUp();
+                    break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+                case Keys.Down:
+                    player.GoDown();
+                    break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
-    }
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
   }
 }

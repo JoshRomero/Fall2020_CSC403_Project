@@ -17,17 +17,39 @@ namespace Fall2020_CSC403_Project
         public static Frm_Pick_Up1 instance = null;
         private Player player;
         private Item item;
-        public Frm_Pick_Up1()
+        private Item item2;
+        private bool trade_weapon;
+        public Frm_Pick_Up1(int initial)
         {
-            InitializeComponent();
+            // not trade
+            if (initial == 1)
+            {
+                InitializeComponent1();
+            }
+            // trade
+            else if(initial == 2)
+            {
+                InitializeComponent();
+            }
+            
             player = Game.player; 
         }
-
+        // not trade
         public void Setup()
         {
             // update for this item
-            picPotion.BackgroundImage = item.Img;
-            picPotion.Refresh();
+            picItem1.BackgroundImage = item.Img;
+            picItem1.Refresh();
+            BackColor = item.Color;
+        }
+        // trade
+        public void Setup2()
+        {
+            // update for this item
+            picItem1.BackgroundImage = item.Img;
+            picItem1.Refresh();
+            picItem2.BackgroundImage = item2.Img;
+            picItem2.Refresh();
             BackColor = item.Color;
         }
 
@@ -35,17 +57,34 @@ namespace Fall2020_CSC403_Project
         {
             if (instance == null)
             {
-                instance = new Frm_Pick_Up1();
+                instance = new Frm_Pick_Up1(1);
                 instance.item = item;
                 instance.Setup();
             }
             return instance;
         }
+        public static Frm_Pick_Up1 GetInstance2(Item item, Item item2)
+        {
+            if (instance == null)
+            {
+                instance = new Frm_Pick_Up1(2);
+                instance.item = item;
+                instance.item2 = item2;
+                instance.trade_weapon = true;
+                instance.Setup2();
+            }
+            return instance;
+        }
         private void Pick_Up_Click(object sender, EventArgs e)
         {
-            player.bag.add_item(item.name);
-            instance = null;
-            Close();
+            if (!instance.trade_weapon)
+                player.bag.add_item(item.name, item.is_weapon);
+            else
+            {
+                player.bag.trade_weapon(item.name, item2.name);
+            }
+                instance = null;
+                Close();
             
         }
     }

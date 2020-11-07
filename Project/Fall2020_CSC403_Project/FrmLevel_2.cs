@@ -16,6 +16,9 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private Frm_Pick_Up1 frm_Pick_Up;
+        private Item knife;
+        private Item bow;
+        private bool traded;
         public FrmLevel_2()
         {
             InitializeComponent();
@@ -32,14 +35,24 @@ namespace Fall2020_CSC403_Project
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
             cookieMonster = new Enemy(CreatePosition(piccookie), CreateCollider(piccookie, PADDING));
             enemyBatie = new Enemy(CreatePosition(picbat), CreateCollider(picbat, PADDING));
+            knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
+            bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
+
+            // setting if an item is a weapon of not 
+            knife.is_weapon = true;
+            bow.is_weapon = true;
 
             // name of the items
             potion.name = "Healing potion";
+            knife.name = "big knife";
+            bow.name = "long bow";
 
             // setting the images for the background when hit
             potion.Img = pictpotion2.BackgroundImage;
             cookieMonster.Img = piccookie.BackgroundImage;
             enemyBatie.Img = picbat.BackgroundImage;
+            knife.Img = picbig_knife.BackgroundImage;
+            bow.Img = picbow.BackgroundImage;
 
             // adding the background color when hit
             potion.Color = Color.DeepPink;
@@ -112,6 +125,28 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(cookieMonster);
             }
+            else if (HitAItem(player, knife))
+            {
+                if (player.bag.has_weapon())
+                {
+                    Pick_Up(knife, bow);
+                }
+                else
+                {
+                    Pick_Up(knife);
+                }
+            }
+            else if (HitAItem(player, bow))
+            {
+                if (player.bag.has_weapon())
+                {
+                    Pick_Up(bow, knife);
+                }
+                else
+                {
+                    Pick_Up(bow);
+                }
+            }
             // update player's picture box
             picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
@@ -150,7 +185,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy, player.bag.has_knife());
+            frmBattle = FrmBattle.GetInstance(enemy, player.bag.current_weapon);
             frmBattle.Show();
 
             // TODO set boss up
@@ -159,19 +194,67 @@ namespace Fall2020_CSC403_Project
                 frmBattle.SetupForBossBattle();
             }*/
         }
-        private void Pick_Up(Item item)
+        private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
-            item.remove_item();
-            if (item == potion)
+            if (item.is_weapon && player.bag.has_weapon() && item2 != null)
+            {
+                frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
+                if (item.name == "big knife")
+                {
+
+                    traded = item2.drop_item((int)knife.Position.x, (int)knife.Position.y);
+                    item.remove_item();
+                }
+                else if (item.name == "long bow")
+                {
+                    traded = item2.drop_item((int)bow.Position.x, (int)bow.Position.y);
+                    item.remove_item();
+                }
+
+            }
+            else
+            {
+                frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
+                item.remove_item();
+            }
+
+            if (!item.is_weapon)
             {
                 pictpotion2.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
             }
-            
+            else if (item.is_weapon)
+            {
+                if (traded)
+                {
+                    if (item2.name == "big knife")
+                    {
+                        picbig_knife.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
+                        picbow.Location = new Point((int)item.Position.x, (int)item.Position.y);
+                    }
+                    else if (item2.name == "long bow")
+                    {
+                        picbow.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
+                        picbig_knife.Location = new Point((int)item.Position.x, (int)item.Position.y);
+                    }
+                }
+                else
+                {
+                    if (item.name == "big knife")
+                    {
+                        picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+                    }
+                    else if (item.name == "long bow")
+                    {
+                        picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+                    }
+                }
+            }
+
             frm_Pick_Up.Show();
         }
+       
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {

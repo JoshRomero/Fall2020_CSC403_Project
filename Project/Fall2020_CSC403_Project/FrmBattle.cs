@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -14,11 +15,15 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
 
-        private FrmBattle(bool has_knife)
+        private FrmBattle(string current_weapon)
         {
-            if (has_knife)
+            if (current_weapon == "big knife")
             {
                 InitializeComponent1();
+            }
+            else if (current_weapon == "long bow")
+            {
+                InitializeComponent2();
             }
             else
             {
@@ -57,11 +62,11 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy, bool has_knife = false)
+        public static FrmBattle GetInstance(Enemy enemy, string current_weapon = null)
         {
             if (instance == null)
             {
-                instance = new FrmBattle(has_knife);
+                instance = new FrmBattle(current_weapon);
                 instance.enemy = enemy;
                 instance.Setup();
             }
@@ -137,14 +142,50 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        private void FrmBattle_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Stab_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-6);
+            if(player.bag.current_weapon == "big knife")
+            {
+                player.OnAttack(-6);
+            }
+            else
+            {
+                player.OnAttack(-10);
+            }
+            
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                if (enemy.Health <= 0)
+                {
+                    enemy.death();
+                }
+                else
+                {
+                    player.death();
+                }
+                instance = null;
+                Close();
+            }
+
+            }
+
+        private void Shoot_Click(object sender, EventArgs e)
+        {
+            if (player.bag.current_weapon == "big knife")
+            {
+                player.OnAttack(-6);
+            }
+            else
+            {
+                player.OnAttack(-10);
+            }
+
             if (enemy.Health > 0)
             {
                 enemy.OnAttack(-2);
@@ -165,7 +206,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
-    } 
+     } 
 }
 
    
