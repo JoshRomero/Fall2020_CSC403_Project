@@ -52,6 +52,12 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevel_0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel_0.Designer.cs">
+      <DependentUpon>FrmLevel_0.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLevel_2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,13 @@
     <Compile Include="FrmLevel_1.Designer.cs">
       <DependentUpon>FrmLevel_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSave.Designer.cs">
+      <DependentUpon>FrmSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_level_0.cs" />
     <Compile Include="Frm_Pick_Up1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +88,17 @@
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel_0.resx">
+      <DependentUpon>FrmLevel_0.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel_2.resx">
       <DependentUpon>FrmLevel_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel_1.resx">
       <DependentUpon>FrmLevel_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSave.resx">
+      <DependentUpon>FrmSave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Pick_Up1.resx">
       <DependentUpon>Frm_Pick_Up1.cs</DependentUpon>
@@ -140,12 +159,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\spear.png" />
     <None Include="data\big_knife.png" />
     <None Include="data\Dracula.jpg" />
     <None Include="data\Cookie.png" />
     <None Include="data\bat.png" />
     <None Include="data\bow.png" />
     <None Include="data\hammer.png" />
+    <None Include="data\darkwall.jpg" />
+    <None Include="data\girl.jpg" />
+    <None Include="data\girl.png" />
+    <None Include="data\fire.png" />
+    <None Include="data\death.png" />
+    <None Include="data\dragon.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />

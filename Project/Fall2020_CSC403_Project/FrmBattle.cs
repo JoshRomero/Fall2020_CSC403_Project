@@ -146,14 +146,7 @@ namespace Fall2020_CSC403_Project
 
         private void Stab_Click(object sender, EventArgs e)
         {
-            if(Program.bag.current_weapon == "big knife")
-            {
-                player.OnAttack(-6);
-            }
-            else
-            {
-                player.OnAttack(-10);
-            }
+            player.OnAttack(-7);
             
             if (enemy.Health > 0)
             {
@@ -178,15 +171,8 @@ namespace Fall2020_CSC403_Project
             }
 
         private void Shoot_Click(object sender, EventArgs e)
-        {
-            if (Program.bag.current_weapon == "big knife")
-            {
-                player.OnAttack(-6);
-            }
-            else
-            {
-                player.OnAttack(-10);
-            }
+        {           
+            player.OnAttack(-10);
 
             if (enemy.Health > 0)
             {

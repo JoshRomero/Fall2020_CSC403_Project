@@ -33,10 +33,8 @@
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.lblInGameTime1 = new System.Windows.Forms.Label();
-            this.pichammer = new System.Windows.Forms.PictureBox();
             this.picbig_knife = new System.Windows.Forms.PictureBox();
             this.picbow = new System.Windows.Forms.PictureBox();
-            this.picbat = new System.Windows.Forms.PictureBox();
             this.piccookie = new System.Windows.Forms.PictureBox();
             this.pictpotion2 = new System.Windows.Forms.PictureBox();
             this.picWall21 = new System.Windows.Forms.PictureBox();
@@ -49,10 +47,10 @@
             this.picWall16 = new System.Windows.Forms.PictureBox();
             this.picWall14 = new System.Windows.Forms.PictureBox();
             this.picPlayer2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).BeginInit();
+            this.picbat = new System.Windows.Forms.PictureBox();
+            this.pichammer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piccookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).BeginInit();
@@ -65,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -97,24 +97,13 @@
             this.lblInGameTime1.TabIndex = 13;
             this.lblInGameTime1.Text = "label1";
             // 
-            // pichammer
-            // 
-            this.pichammer.BackColor = System.Drawing.Color.Transparent;
-            this.pichammer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hammer;
-            this.pichammer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pichammer.Location = new System.Drawing.Point(632, 578);
-            this.pichammer.Name = "pichammer";
-            this.pichammer.Size = new System.Drawing.Size(49, 50);
-            this.pichammer.TabIndex = 22;
-            this.pichammer.TabStop = false;
-            // 
             // picbig_knife
             // 
             this.picbig_knife.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.big_knife;
             this.picbig_knife.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbig_knife.Location = new System.Drawing.Point(583, 74);
+            this.picbig_knife.Location = new System.Drawing.Point(-100, -100);
             this.picbig_knife.Name = "picbig_knife";
-            this.picbig_knife.Size = new System.Drawing.Size(0, 0);
+            this.picbig_knife.Size = new System.Drawing.Size(49, 50);
             this.picbig_knife.TabIndex = 20;
             this.picbig_knife.TabStop = false;
             // 
@@ -123,29 +112,18 @@
             this.picbow.BackColor = System.Drawing.Color.Transparent;
             this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
             this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbow.Location = new System.Drawing.Point(-100, -100);
+            this.picbow.Location = new System.Drawing.Point(1001, 101);
             this.picbow.Name = "picbow";
             this.picbow.Size = new System.Drawing.Size(49, 50);
             this.picbow.TabIndex = 21;
             this.picbow.TabStop = false;
-            // 
-            // picbat
-            // 
-            this.picbat.BackColor = System.Drawing.Color.Transparent;
-            this.picbat.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bat;
-            this.picbat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbat.Location = new System.Drawing.Point(582, 525);
-            this.picbat.Name = "picbat";
-            this.picbat.Size = new System.Drawing.Size(128, 120);
-            this.picbat.TabIndex = 12;
-            this.picbat.TabStop = false;
             // 
             // piccookie
             // 
             this.piccookie.BackColor = System.Drawing.Color.Transparent;
             this.piccookie.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Cookie;
             this.piccookie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.piccookie.Location = new System.Drawing.Point(1011, 78);
+            this.piccookie.Location = new System.Drawing.Point(962, 69);
             this.piccookie.Name = "piccookie";
             this.piccookie.Size = new System.Drawing.Size(135, 111);
             this.piccookie.TabIndex = 11;
@@ -167,9 +145,9 @@
             this.picWall21.BackColor = System.Drawing.Color.Transparent;
             this.picWall21.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall21.Location = new System.Drawing.Point(1092, 199);
+            this.picWall21.Location = new System.Drawing.Point(1092, 69);
             this.picWall21.Name = "picWall21";
-            this.picWall21.Size = new System.Drawing.Size(79, 450);
+            this.picWall21.Size = new System.Drawing.Size(79, 580);
             this.picWall21.TabIndex = 8;
             this.picWall21.TabStop = false;
             // 
@@ -178,7 +156,7 @@
             this.picWall20.BackColor = System.Drawing.Color.Transparent;
             this.picWall20.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall20.Location = new System.Drawing.Point(909, 69);
+            this.picWall20.Location = new System.Drawing.Point(877, 69);
             this.picWall20.Name = "picWall20";
             this.picWall20.Size = new System.Drawing.Size(79, 450);
             this.picWall20.TabIndex = 7;
@@ -272,6 +250,28 @@
             this.picPlayer2.TabIndex = 10;
             this.picPlayer2.TabStop = false;
             // 
+            // picbat
+            // 
+            this.picbat.BackColor = System.Drawing.Color.Transparent;
+            this.picbat.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bat;
+            this.picbat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picbat.Location = new System.Drawing.Point(582, 525);
+            this.picbat.Name = "picbat";
+            this.picbat.Size = new System.Drawing.Size(128, 120);
+            this.picbat.TabIndex = 12;
+            this.picbat.TabStop = false;
+            // 
+            // pichammer
+            // 
+            this.pichammer.BackColor = System.Drawing.Color.Transparent;
+            this.pichammer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hammer;
+            this.pichammer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pichammer.Location = new System.Drawing.Point(632, 578);
+            this.pichammer.Name = "pichammer";
+            this.pichammer.Size = new System.Drawing.Size(49, 50);
+            this.pichammer.TabIndex = 22;
+            this.pichammer.TabStop = false;
+            // 
             // FrmLevel_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,8 +280,6 @@
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.lblInGameTime1);
             this.Controls.Add(this.picbig_knife);
-            this.Controls.Add(this.picbow);
-            this.Controls.Add(this.piccookie);
             this.Controls.Add(this.pictpotion2);
             this.Controls.Add(this.picWall21);
             this.Controls.Add(this.picWall20);
@@ -295,16 +293,16 @@
             this.Controls.Add(this.picPlayer2);
             this.Controls.Add(this.picbat);
             this.Controls.Add(this.pichammer);
+            this.Controls.Add(this.piccookie);
+            this.Controls.Add(this.picbow);
             this.Name = "FrmLevel_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piccookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).EndInit();
@@ -317,6 +315,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

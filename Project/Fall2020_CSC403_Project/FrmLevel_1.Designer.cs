@@ -24,10 +24,10 @@
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel_1));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picbow = new System.Windows.Forms.PictureBox();
             this.picbig_knife = new System.Windows.Forms.PictureBox();
             this.pictpotion1 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
@@ -45,9 +45,9 @@
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
-            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer1 = new System.Windows.Forms.PictureBox();
-            this.picbow = new System.Windows.Forms.PictureBox();
+            this.picdragon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -65,9 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -92,6 +91,16 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // picbow
+            // 
+            this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
+            this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picbow.Location = new System.Drawing.Point(-100, -100);
+            this.picbow.Name = "picbow";
+            this.picbow.Size = new System.Drawing.Size(49, 50);
+            this.picbow.TabIndex = 21;
+            this.picbow.TabStop = false;
             // 
             // picbig_knife
             // 
@@ -280,17 +289,6 @@
             this.picWall3.TabIndex = 3;
             this.picWall3.TabStop = false;
             // 
-            // picBossKoolAid
-            // 
-            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
-            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
-            this.picBossKoolAid.TabIndex = 1;
-            this.picBossKoolAid.TabStop = false;
-            // 
             // picPlayer1
             // 
             this.picPlayer1.BackColor = System.Drawing.Color.Transparent;
@@ -302,16 +300,15 @@
             this.picPlayer1.TabIndex = 0;
             this.picPlayer1.TabStop = false;
             // 
-            // picbow
+            // picdragon
             // 
-            this.picbow.BackColor = System.Drawing.Color.Transparent;
-            this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
-            this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbow.Location = new System.Drawing.Point(1039, 169);
-            this.picbow.Name = "picbow";
-            this.picbow.Size = new System.Drawing.Size(49, 50);
-            this.picbow.TabIndex = 21;
-            this.picbow.TabStop = false;
+            this.picdragon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dragon;
+            this.picdragon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picdragon.Location = new System.Drawing.Point(956, 89);
+            this.picdragon.Name = "picdragon";
+            this.picdragon.Size = new System.Drawing.Size(207, 161);
+            this.picdragon.TabIndex = 22;
+            this.picdragon.TabStop = false;
             // 
             // FrmLevel_1
             // 
@@ -320,6 +317,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.picdragon);
+            this.Controls.Add(this.picbow);
             this.Controls.Add(this.picbig_knife);
             this.Controls.Add(this.pictpotion1);
             this.Controls.Add(this.picWall11);
@@ -339,8 +338,6 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer1);
-            this.Controls.Add(this.picBossKoolAid);
-            this.Controls.Add(this.picbow);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -348,6 +345,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
@@ -365,9 +363,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,7 +393,7 @@
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
-            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.picdragon = new System.Windows.Forms.PictureBox();
             this.picPlayer1 = new System.Windows.Forms.PictureBox();
             this.picbow = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
@@ -416,7 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
             this.SuspendLayout();
@@ -631,16 +628,16 @@
             this.picWall3.TabIndex = 3;
             this.picWall3.TabStop = false;
             // 
-            // picBossKoolAid
+            // picdragon
             // 
-            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
-            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
-            this.picBossKoolAid.TabIndex = 1;
-            this.picBossKoolAid.TabStop = false;
+            this.picdragon.BackColor = System.Drawing.Color.Transparent;
+            this.picdragon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dragon;
+            this.picdragon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picdragon.Location = new System.Drawing.Point(971, 74);
+            this.picdragon.Name = "picdragon";
+            this.picdragon.Size = new System.Drawing.Size(193, 194);
+            this.picdragon.TabIndex = 1;
+            this.picdragon.TabStop = false;
             // 
             // picPlayer1
             // 
@@ -658,7 +655,7 @@
             this.picbow.BackColor = System.Drawing.Color.Transparent;
             this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
             this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbow.Location = new System.Drawing.Point(1039, 169);
+            this.picbow.Location = new System.Drawing.Point(-100, -100);
             this.picbow.Name = "picbow";
             this.picbow.Size = new System.Drawing.Size(49, 50);
             this.picbow.TabIndex = 21;
@@ -689,7 +686,7 @@
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
-            this.Controls.Add(this.picBossKoolAid);
+            this.Controls.Add(this.picdragon);
             this.Controls.Add(this.picPlayer1);
             this.Controls.Add(this.picbow);
             this.DoubleBuffered = true;
@@ -716,7 +713,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
             this.ResumeLayout(false);
@@ -727,7 +724,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picPlayer1;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
@@ -749,6 +745,7 @@
         private System.Windows.Forms.PictureBox pictpotion1;
         private System.Windows.Forms.PictureBox picbig_knife;
         private System.Windows.Forms.PictureBox picbow;
+        private System.Windows.Forms.PictureBox picdragon;
     }
 }
 

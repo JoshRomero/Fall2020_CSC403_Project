@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Player player;
 
     private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
+    private Enemy dragon;
     private Enemy enemyCheeto;
     private Item potion;
     private Character[] walls;
@@ -40,13 +40,17 @@ namespace Fall2020_CSC403_Project {
 
       // the position of the onject 
       player = new Player(CreatePosition(picPlayer1), CreateCollider(picPlayer1, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      dragon = new Enemy(CreatePosition(picdragon), CreateCollider(picdragon, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       potion = new Item(CreatePosition(pictpotion1), CreateCollider(pictpotion1, PADDING));
       knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
       bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
       
+
+      // set max health
+      dragon.MaxHealth = 30;
+      dragon.Health = 30;
       // setting if an item is a weapon of not 
       knife.is_weapon = true;
       bow.is_weapon = true;
@@ -56,14 +60,14 @@ namespace Fall2020_CSC403_Project {
       knife.name = "big knife";
       bow.name = "long bow";
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+      dragon.Img = picdragon.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       potion.Img = pictpotion1.BackgroundImage;
       knife.Img = picbig_knife.BackgroundImage;
       bow.Img = picbow.BackgroundImage;
 
-      bossKoolaid.Color = Color.Red;
+      dragon.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
       potion.Color = Color.DeepPink;
@@ -101,6 +105,10 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
+        if(Fall2020_CSC403_Project.Program.bag.has_hammer())
+        {
+            walls[4].open_hidden_wall();
+        }
       // move player
       if (player.status)
             {
@@ -112,6 +120,7 @@ namespace Fall2020_CSC403_Project {
                 Program.end_game();
                 Thread.Sleep(5000);
                 Close();
+                return;
             }
 
       // check collision with walls
@@ -119,30 +128,30 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-            // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket)) {
-                Fight(enemyPoisonPacket);
-            }
-            else if (HitAChar(player, enemyCheeto)) {
-                Fight(enemyCheeto);
-            }
-            else if (HitAChar(player, bossKoolaid)) {
-                Fight(bossKoolaid);
-            }
-            else if (HitAItem(player, potion))
+        // check collision with enemies
+        if (HitAChar(player, enemyPoisonPacket)) {
+            Fight(enemyPoisonPacket);
+        }
+        else if (HitAChar(player, enemyCheeto)) {
+            Fight(enemyCheeto);
+        }
+        else if (HitAChar(player, dragon)) {
+            Fight(dragon);
+        }
+        else if (HitAItem(player, potion))
+        {
+            Pick_Up(potion);
+        }
+        else if (HitAItem(player, knife))
+        {
+            if (Program.bag.has_weapon())
             {
-                Pick_Up(potion);
+                Pick_Up(knife, bow);
             }
-            else if (HitAItem(player, knife))
+            else
             {
-                if (Program.bag.has_weapon())
-                {
-                    Pick_Up(knife, bow);
-                }
-                else
-                {
-                    Pick_Up(knife);
-                }
+                Pick_Up(knife);
+            }
         }
       else if (HitAItem(player, bow))
       {
@@ -160,10 +169,15 @@ namespace Fall2020_CSC403_Project {
             picPlayer1.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
             picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
-            picBossKoolAid.Location = new Point((int)bossKoolaid.Position.x, (int)bossKoolaid.Position.y);
+            picdragon.Location = new Point((int)dragon.Position.x, (int)dragon.Position.y);
             if (picPlayer1.Location.X >= 1176)
             {
                 Program.change_level(2);
+                Close();
+            }
+            else if (picPlayer1.Location.X <= 0)
+            {
+                Program.change_level(0);
                 Close();
             }
         }
@@ -194,9 +208,6 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
-            if (enemy == bossKoolaid) {
-                frmBattle.SetupForBossBattle();
-            }
         }
         private void Pick_Up(Item item, Item item2 = null)
         {

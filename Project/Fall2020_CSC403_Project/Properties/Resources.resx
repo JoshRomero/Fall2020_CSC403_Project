@@ -127,32 +127,50 @@
   <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_koolaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="spear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\spear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\death.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cookie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\Cookie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\bow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="darkwall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\darkwall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="big_knife" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\big_knife.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dracula" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\Dracula.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="girl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\girl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\potion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="girl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\girl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="potion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\potion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Dracula" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Dracula.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tpotion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\tpotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,10 +178,16 @@
   <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\dragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\potion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dragon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\dragon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

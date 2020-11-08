@@ -71,17 +71,17 @@ namespace Fall2020_CSC403_Project.code
             }
             return count;
         }
-        public bool has_knife()
+        public bool has_hammer()
         {
             foreach (string item in items)
             {
-                if (item == "big knife")
+                if (item == "Mjölnir")
                 {
                     return true;
                 }
             }
             return false;
-        } 
+        }
         public bool has_weapon()
         {
             return has_a_weapon;

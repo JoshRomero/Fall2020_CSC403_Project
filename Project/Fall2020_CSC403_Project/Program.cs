@@ -11,22 +11,22 @@ namespace Fall2020_CSC403_Project {
     static class Program {
         public static int last_level { get; private set; }
         public static int last_level2 { get; private set; }
-        private static int level;
+        public static int level;
         private static bool exit;
         public static Fall2020_CSC403_Project.code.Bag bag;
-        public static int[] levels;
         public static int persistent_health { get; private set; }
+        public static bool traded { get; set; }
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
     static void Main() {
-      levels = new int[] { 0, 0, 0, 0 };
+      traded = false;
       persistent_health = 20;
       bag = new code.Bag();
       last_level = 1;
-      last_level = 1;
+      last_level2 = 1;
       level = 1;
       exit = false;
       Application.EnableVisualStyles();
@@ -36,8 +36,18 @@ namespace Fall2020_CSC403_Project {
                 
                 switch (level)
                 {
+                    case 0:
+                        Application.Run(new FrmLevel_0());
+                        if (last_level2 == level)
+                        {
+                            exit = true;
+                        }
+                        else
+                        {
+                            last_level2 = level;
+                        }
+                        break;
                     case 1:
-                        levels[1] = levels[1] + 1;
                         Application.Run(new FrmLevel_1());
                         if (last_level2 == level)
                         {
@@ -49,7 +59,6 @@ namespace Fall2020_CSC403_Project {
                         }
                         break;
                     case 2:
-                        levels[2] = levels[2] + 1;
                         Application.Run(new FrmLevel_2());
                         if (last_level2 == level)
                         {

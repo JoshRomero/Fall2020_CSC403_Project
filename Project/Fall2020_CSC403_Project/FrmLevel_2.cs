@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private Frm_Pick_Up1 frm_Pick_Up;
-        private Item knife;
+        private Item knife; 
         private Item bow;
         private Item hammer;
         private bool traded;
@@ -31,6 +31,7 @@ namespace Fall2020_CSC403_Project
             const int PADDING = 7;
             const int NUM_WALLS = 9;
 
+
             // the position of the onject 
             player = new Player(CreatePosition(picPlayer2), CreateCollider(picPlayer2, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
@@ -39,6 +40,11 @@ namespace Fall2020_CSC403_Project
             knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
             bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
+
+            enemyBatie.MaxHealth = 30;
+            cookieMonster.MaxHealth = 35;
+            enemyBatie.Health = 30;
+            cookieMonster.Health = 35;
 
             // setting if an item is a weapon of not 
             knife.is_weapon = true;
@@ -110,9 +116,14 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                int level = Fall2020_CSC403_Project.Program.last_level;
+                int level1 = Fall2020_CSC403_Project.Program.level;
+
                 player.Move();
+                Program.end_game();
                 Thread.Sleep(5000);
                 Close();
+                return;
             }
 
             // check collision with walls

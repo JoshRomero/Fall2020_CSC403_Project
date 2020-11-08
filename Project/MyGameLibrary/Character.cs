@@ -32,8 +32,12 @@ namespace Fall2020_CSC403_Project.code {
             Collider.MovePosition(-100, -100);
             
         }
+    public void open_hidden_wall()
+    {
+        Collider.MovePosition(-100, -100);
+    }
 
-    public void MoveBack() {
+        public void MoveBack() {
       Position = LastPosition;
     }
 
