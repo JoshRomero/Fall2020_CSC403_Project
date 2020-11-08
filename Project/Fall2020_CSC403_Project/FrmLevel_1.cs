@@ -22,7 +22,15 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private Frm_Pick_Up1 frm_Pick_Up;
     public FrmLevel_1() {
-      InitializeComponent();
+          if(Fall2020_CSC403_Project.Program.last_level == 2)
+            {
+                InitializeComponent();
+            }
+            else
+            {
+                InitializeComponent1();
+            }
+      
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
@@ -92,6 +100,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+      player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
       // move player
       if (player.status)
             {
@@ -126,7 +135,7 @@ namespace Fall2020_CSC403_Project {
             }
             else if (HitAItem(player, knife))
             {
-                if (player.bag.has_weapon())
+                if (Program.bag.has_weapon())
                 {
                     Pick_Up(knife, bow);
                 }
@@ -137,7 +146,7 @@ namespace Fall2020_CSC403_Project {
         }
       else if (HitAItem(player, bow))
       {
-                if (player.bag.has_weapon())
+                if (Program.bag.has_weapon())
                 {
                     Pick_Up(bow, knife);
                 }
@@ -182,7 +191,7 @@ namespace Fall2020_CSC403_Project {
             player.ResetMoveSpeed();
             player.MoveBack();
 
-            frmBattle = FrmBattle.GetInstance(enemy, player.bag.current_weapon);
+            frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
             if (enemy == bossKoolaid) {
@@ -193,7 +202,7 @@ namespace Fall2020_CSC403_Project {
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            if (item.is_weapon && player.bag.has_weapon() && item2 != null)
+            if (item.is_weapon && Program.bag.has_weapon() && item2 != null)
             {
                 frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
                 if (item.name == "big knife")

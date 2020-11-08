@@ -75,7 +75,7 @@ namespace Fall2020_CSC403_Project
 
         private void UpdatePotionsCount()
         {
-            num_potions.Text = ("X " + player.bag.num_potions().ToString());
+            num_potions.Text = ("X " + Program.bag.num_potions().ToString());
         }
         private void UpdateHealthBars()
         {
@@ -115,11 +115,12 @@ namespace Fall2020_CSC403_Project
         }
         private void btnpotion_Click(object sender, EventArgs e)
         {
-            if ((player.bag.get_bag_size() > 0) && (player.bag.num_potions() > 0))
+            if ((Program.bag.get_bag_size() > 0) && (Program.bag.num_potions() > 0) && (player.Health != player.MaxHealth))
             {
-                player.bag.use_item("Healing potion");
+                Program.bag.use_item("Healing potion");
                 player.AlterHealth(5, "heal");
                 UpdateHealthBars();
+                Fall2020_CSC403_Project.Program.updatePersistentHealth(player.Health);
                 UpdatePotionsCount();
 
             }
@@ -133,6 +134,7 @@ namespace Fall2020_CSC403_Project
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
+            Fall2020_CSC403_Project.Program.updatePersistentHealth(player.Health);
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace Fall2020_CSC403_Project
 
         private void Stab_Click(object sender, EventArgs e)
         {
-            if(player.bag.current_weapon == "big knife")
+            if(Program.bag.current_weapon == "big knife")
             {
                 player.OnAttack(-6);
             }
@@ -177,7 +179,7 @@ namespace Fall2020_CSC403_Project
 
         private void Shoot_Click(object sender, EventArgs e)
         {
-            if (player.bag.current_weapon == "big knife")
+            if (Program.bag.current_weapon == "big knife")
             {
                 player.OnAttack(-6);
             }

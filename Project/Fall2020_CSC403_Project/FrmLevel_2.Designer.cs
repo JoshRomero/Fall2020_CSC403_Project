@@ -33,9 +33,10 @@
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.lblInGameTime1 = new System.Windows.Forms.Label();
-            this.picbat = new System.Windows.Forms.PictureBox();
+            this.pichammer = new System.Windows.Forms.PictureBox();
             this.picbig_knife = new System.Windows.Forms.PictureBox();
             this.picbow = new System.Windows.Forms.PictureBox();
+            this.picbat = new System.Windows.Forms.PictureBox();
             this.piccookie = new System.Windows.Forms.PictureBox();
             this.pictpotion2 = new System.Windows.Forms.PictureBox();
             this.picWall21 = new System.Windows.Forms.PictureBox();
@@ -48,6 +49,7 @@
             this.picWall16 = new System.Windows.Forms.PictureBox();
             this.picWall14 = new System.Windows.Forms.PictureBox();
             this.picPlayer2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbat)).BeginInit();
@@ -95,13 +97,24 @@
             this.lblInGameTime1.TabIndex = 13;
             this.lblInGameTime1.Text = "label1";
             // 
+            // pichammer
+            // 
+            this.pichammer.BackColor = System.Drawing.Color.Transparent;
+            this.pichammer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hammer;
+            this.pichammer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pichammer.Location = new System.Drawing.Point(632, 578);
+            this.pichammer.Name = "pichammer";
+            this.pichammer.Size = new System.Drawing.Size(49, 50);
+            this.pichammer.TabIndex = 22;
+            this.pichammer.TabStop = false;
+            // 
             // picbig_knife
             // 
             this.picbig_knife.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.big_knife;
             this.picbig_knife.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picbig_knife.Location = new System.Drawing.Point(583, 74);
             this.picbig_knife.Name = "picbig_knife";
-            this.picbig_knife.Size = new System.Drawing.Size(49, 50);
+            this.picbig_knife.Size = new System.Drawing.Size(0, 0);
             this.picbig_knife.TabIndex = 20;
             this.picbig_knife.TabStop = false;
             // 
@@ -110,7 +123,7 @@
             this.picbow.BackColor = System.Drawing.Color.Transparent;
             this.picbow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bow;
             this.picbow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbow.Location = new System.Drawing.Point(1039, 169);
+            this.picbow.Location = new System.Drawing.Point(-100, -100);
             this.picbow.Name = "picbow";
             this.picbow.Size = new System.Drawing.Size(49, 50);
             this.picbow.TabIndex = 21;
@@ -222,7 +235,7 @@
             this.picWall13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picWall13.Location = new System.Drawing.Point(0, 63);
             this.picWall13.Name = "picWall13";
-            this.picWall13.Size = new System.Drawing.Size(74, 499);
+            this.picWall13.Size = new System.Drawing.Size(74, 425);
             this.picWall13.TabIndex = 2;
             this.picWall13.TabStop = false;
             // 
@@ -231,9 +244,9 @@
             this.picWall16.BackColor = System.Drawing.Color.Transparent;
             this.picWall16.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall16.Location = new System.Drawing.Point(144, 655);
+            this.picWall16.Location = new System.Drawing.Point(0, 655);
             this.picWall16.Name = "picWall16";
-            this.picWall16.Size = new System.Drawing.Size(1027, 76);
+            this.picWall16.Size = new System.Drawing.Size(1171, 76);
             this.picWall16.TabIndex = 1;
             this.picWall16.TabStop = false;
             // 
@@ -253,7 +266,7 @@
             this.picPlayer2.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlayer2.Location = new System.Drawing.Point(12, 590);
+            this.picPlayer2.Location = new System.Drawing.Point(12, 503);
             this.picPlayer2.Name = "picPlayer2";
             this.picPlayer2.Size = new System.Drawing.Size(54, 106);
             this.picPlayer2.TabIndex = 10;
@@ -268,7 +281,6 @@
             this.Controls.Add(this.lblInGameTime1);
             this.Controls.Add(this.picbig_knife);
             this.Controls.Add(this.picbow);
-            this.Controls.Add(this.picbat);
             this.Controls.Add(this.piccookie);
             this.Controls.Add(this.pictpotion2);
             this.Controls.Add(this.picWall21);
@@ -281,15 +293,18 @@
             this.Controls.Add(this.picWall16);
             this.Controls.Add(this.picWall14);
             this.Controls.Add(this.picPlayer2);
+            this.Controls.Add(this.picbat);
+            this.Controls.Add(this.pichammer);
             this.Name = "FrmLevel_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picbat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pichammer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piccookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).EndInit();
@@ -327,5 +342,6 @@
         private System.Windows.Forms.Label lblInGameTime1;
         private System.Windows.Forms.PictureBox picbig_knife;
         private System.Windows.Forms.PictureBox picbow;
+        private System.Windows.Forms.PictureBox pichammer;
     }
 }

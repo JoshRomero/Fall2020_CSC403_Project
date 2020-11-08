@@ -18,6 +18,7 @@ namespace Fall2020_CSC403_Project
         private Frm_Pick_Up1 frm_Pick_Up;
         private Item knife;
         private Item bow;
+        private Item hammer;
         private bool traded;
         public FrmLevel_2()
         {
@@ -37,6 +38,7 @@ namespace Fall2020_CSC403_Project
             enemyBatie = new Enemy(CreatePosition(picbat), CreateCollider(picbat, PADDING));
             knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
             bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
+            hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
             // setting if an item is a weapon of not 
             knife.is_weapon = true;
@@ -44,6 +46,7 @@ namespace Fall2020_CSC403_Project
 
             // name of the items
             potion.name = "Healing potion";
+            hammer.name = "Mjölnir";
             knife.name = "big knife";
             bow.name = "long bow";
 
@@ -53,11 +56,15 @@ namespace Fall2020_CSC403_Project
             enemyBatie.Img = picbat.BackgroundImage;
             knife.Img = picbig_knife.BackgroundImage;
             bow.Img = picbow.BackgroundImage;
+            hammer.Img = pichammer.BackgroundImage;
 
             // adding the background color when hit
             potion.Color = Color.DeepPink;
             cookieMonster.Color = Color.Blue;
             enemyBatie.Color = Color.DarkSlateGray;
+            knife.Color = Color.DarkRed;
+            bow.Color = Color.DarkGreen;
+            hammer.Color = Color.DarkBlue;
 
             walls = new Character[NUM_WALLS];
             for (int w = 13; w < NUM_WALLS+13; w++)
@@ -95,6 +102,7 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
+            player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
             // move player
             if (player.status)
             {
@@ -116,6 +124,10 @@ namespace Fall2020_CSC403_Project
             {
                 Pick_Up(potion);
             }
+            else if (HitAItem(player, hammer))
+            {
+                Pick_Up(hammer);
+            }
             // check collision with enemies
             if (HitAChar(player, enemyBatie))
             {
@@ -127,7 +139,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (HitAItem(player, knife))
             {
-                if (player.bag.has_weapon())
+                if (Program.bag.has_weapon())
                 {
                     Pick_Up(knife, bow);
                 }
@@ -138,7 +150,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (HitAItem(player, bow))
             {
-                if (player.bag.has_weapon())
+                if (Program.bag.has_weapon())
                 {
                     Pick_Up(bow, knife);
                 }
@@ -151,12 +163,18 @@ namespace Fall2020_CSC403_Project
             picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
             piccookie.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
-            //TODO add level 3 
+
             // if the player passes the boss and exits the screen
-            /*if (picPlayer2.Location.X >= 1176)
+            if (picPlayer2.Location.X >= 1176)
             {
+                Program.change_level(3);
                 Close();
-            }*/
+            }
+            else if (picPlayer2.Location.X <= 0)
+            {
+                Program.change_level(1);
+                Close();
+            }
         }
         private bool HitAWall(Character c)
         {
@@ -185,7 +203,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy, player.bag.current_weapon);
+            frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
             // TODO set boss up
@@ -198,7 +216,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            if (item.is_weapon && player.bag.has_weapon() && item2 != null)
+            if (item.is_weapon && Program.bag.has_weapon() && item2 != null)
             {
                 frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
                 if (item.name == "big knife")
@@ -222,7 +240,15 @@ namespace Fall2020_CSC403_Project
 
             if (!item.is_weapon)
             {
-                pictpotion2.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+                if(item.name == "Healing potion")
+                {
+                    pictpotion2.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
+
+                }
+                else
+                {
+                    pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
+                }
             }
             else if (item.is_weapon)
             {

@@ -145,6 +145,7 @@
     <None Include="data\Cookie.png" />
     <None Include="data\bat.png" />
     <None Include="data\bow.png" />
+    <None Include="data\hammer.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />

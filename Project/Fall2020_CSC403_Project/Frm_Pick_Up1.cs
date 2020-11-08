@@ -78,10 +78,10 @@ namespace Fall2020_CSC403_Project
         private void Pick_Up_Click(object sender, EventArgs e)
         {
             if (!instance.trade_weapon)
-                player.bag.add_item(item.name, item.is_weapon);
+                Program.bag.add_item(item.name, item.is_weapon);
             else
             {
-                player.bag.trade_weapon(item.name, item2.name);
+                Program.bag.trade_weapon(item.name, item2.name);
             }
                 instance = null;
                 Close();
