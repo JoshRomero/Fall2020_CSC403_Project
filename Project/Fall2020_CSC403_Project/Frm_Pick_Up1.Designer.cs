@@ -117,6 +117,7 @@
             this.Controls.Add(this.picPlayer);
             this.Name = "Frm_Pick_Up1";
             this.Text = "Frm_Pick_Up1";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem2)).EndInit();
@@ -178,6 +179,7 @@
             this.Controls.Add(this.picPlayer);
             this.Name = "Frm_Pick_Up1";
             this.Text = "Frm_Pick_Up1";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem1)).EndInit();
             this.ResumeLayout(false);

@@ -41,10 +41,10 @@ namespace Fall2020_CSC403_Project
             bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
-            enemyBatie.MaxHealth = 30;
-            cookieMonster.MaxHealth = 35;
-            enemyBatie.Health = 30;
-            cookieMonster.Health = 35;
+            enemyBatie.MaxHealth = 25;
+            cookieMonster.MaxHealth = 30;
+            enemyBatie.Health = 25;
+            cookieMonster.Health = 30;
 
             // setting if an item is a weapon of not 
             knife.is_weapon = true;
@@ -295,6 +295,7 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
+            
             switch (e.KeyCode)
             {
                 case Keys.Left:

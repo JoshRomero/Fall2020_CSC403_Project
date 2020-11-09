@@ -121,7 +121,7 @@ namespace Fall2020_CSC403_Project
             // if the player passes the boss and exits the screen
             if (picPlayer0.Location.X >= 1176)
             {
-                Program.change_level(3);
+                Program.change_level(1);
                 Close();
             }
         }

@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 using System.Threading;
 
 namespace Fall2020_CSC403_Project {
@@ -49,8 +50,8 @@ namespace Fall2020_CSC403_Project {
       
 
       // set max health
-      dragon.MaxHealth = 30;
-      dragon.Health = 30;
+      dragon.MaxHealth = 20;
+      dragon.Health = 20;
       // setting if an item is a weapon of not 
       knife.is_weapon = true;
       bow.is_weapon = true;

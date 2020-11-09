@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace Fall2020_CSC403_Project
 {
@@ -78,7 +79,9 @@ namespace Fall2020_CSC403_Project
         private void Pick_Up_Click(object sender, EventArgs e)
         {
             if (!instance.trade_weapon)
+            {
                 Program.bag.add_item(item.name, item.is_weapon);
+            }
             else
             {
                 Program.bag.trade_weapon(item.name, item2.name);
@@ -86,6 +89,17 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
             
+        }
+        private void Form1_Closing(Object sender, CancelEventArgs e)
+        {
+            if (instance == null)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
