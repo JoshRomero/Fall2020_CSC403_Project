@@ -27,6 +27,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picdragon = new System.Windows.Forms.PictureBox();
             this.picbow = new System.Windows.Forms.PictureBox();
             this.picbig_knife = new System.Windows.Forms.PictureBox();
             this.pictpotion1 = new System.Windows.Forms.PictureBox();
@@ -46,7 +47,7 @@
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picPlayer1 = new System.Windows.Forms.PictureBox();
-            this.picdragon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion1)).BeginInit();
@@ -66,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -91,6 +91,16 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // picdragon
+            // 
+            this.picdragon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dragon;
+            this.picdragon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picdragon.Location = new System.Drawing.Point(956, 89);
+            this.picdragon.Name = "picdragon";
+            this.picdragon.Size = new System.Drawing.Size(207, 161);
+            this.picdragon.TabIndex = 22;
+            this.picdragon.TabStop = false;
             // 
             // picbow
             // 
@@ -300,16 +310,6 @@
             this.picPlayer1.TabIndex = 0;
             this.picPlayer1.TabStop = false;
             // 
-            // picdragon
-            // 
-            this.picdragon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dragon;
-            this.picdragon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdragon.Location = new System.Drawing.Point(956, 89);
-            this.picdragon.Name = "picdragon";
-            this.picdragon.Size = new System.Drawing.Size(207, 161);
-            this.picdragon.TabIndex = 22;
-            this.picdragon.TabStop = false;
-            // 
             // FrmLevel_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +345,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbig_knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictpotion1)).EndInit();
@@ -364,7 +365,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdragon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -172,6 +172,7 @@
     <None Include="data\fire.png" />
     <None Include="data\death.png" />
     <None Include="data\dragon.png" />
+    <None Include="data\babyPeanut.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />
