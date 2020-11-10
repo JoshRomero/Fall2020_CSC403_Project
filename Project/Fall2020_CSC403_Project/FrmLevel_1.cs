@@ -125,14 +125,19 @@ namespace Fall2020_CSC403_Project {
             }
 
       // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
-      if(player.Health == (player.MaxHealth * .2))
+      if(player.Health <= (player.MaxHealth * .2))
             {
 
                 picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
             }
+            if (player.Health >= (player.MaxHealth * .2))
+            {
 
-      // check collision with walls
-      if (HitAWall(player)) {
+                picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+            }
+
+            // check collision with walls
+            if (HitAWall(player)) {
         player.MoveBack();
       }
 
