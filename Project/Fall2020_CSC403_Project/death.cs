@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project
     public partial class death : Form
     {
         public static death instance = null;
-        private Enemy enemy;
         public death()
         {
             InitializeComponent();
