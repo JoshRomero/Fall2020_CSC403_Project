@@ -9,7 +9,6 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace Fall2020_CSC403_Project
 {
@@ -20,6 +19,7 @@ namespace Fall2020_CSC403_Project
         private Item item;
         private Item item2;
         private bool trade_weapon;
+        private Frm_Worthy frmWorthy;
         public Frm_Pick_Up1(int initial)
         {
             // not trade
@@ -78,6 +78,7 @@ namespace Fall2020_CSC403_Project
         }
         private void Pick_Up_Click(object sender, EventArgs e)
         {
+            
             if (!instance.trade_weapon)
             {
                 Program.bag.add_item(item.name, item.is_weapon);
@@ -88,7 +89,16 @@ namespace Fall2020_CSC403_Project
             }
                 instance = null;
                 Close();
-            
+            if (item.name == "Mjölnir")
+            {
+                Worthy();
+            }
+
+        }
+        private void Worthy()
+        {
+            frmWorthy = Frm_Worthy.GetInstance();
+            frmWorthy.Show();
         }
         private void Form1_Closing(Object sender, CancelEventArgs e)
         {

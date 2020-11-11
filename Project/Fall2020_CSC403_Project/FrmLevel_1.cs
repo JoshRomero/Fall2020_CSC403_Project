@@ -124,18 +124,30 @@ namespace Fall2020_CSC403_Project {
                 return;
             }
 
-      // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
-      if(player.Health <= (player.MaxHealth * .2))
+            // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
+            if (player.Health <= (player.MaxHealth * .2))
             {
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
 
-                picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                }
+                else
+                {
+                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                }
             }
-            if (player.Health >= (player.MaxHealth * .2))
+            else
             {
-
-                picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
+                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                }
+                else
+                {
+                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                }
             }
-
             // check collision with walls
             if (HitAWall(player)) {
         player.MoveBack();

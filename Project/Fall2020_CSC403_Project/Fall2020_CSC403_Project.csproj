@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="death.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="death.Designer.cs">
+      <DependentUpon>death.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +82,12 @@
     <Compile Include="FrmSave.Designer.cs">
       <DependentUpon>FrmSave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_level_0.cs" />
+    <Compile Include="Frm_Worthy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Worthy.Designer.cs">
+      <DependentUpon>Frm_Worthy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Pick_Up1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="death.resx">
+      <DependentUpon>death.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSave.resx">
       <DependentUpon>FrmSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Worthy.resx">
+      <DependentUpon>Frm_Worthy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Pick_Up1.resx">
       <DependentUpon>Frm_Pick_Up1.cs</DependentUpon>
@@ -159,6 +176,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\superbabyPeanut.png" />
+    <None Include="data\superplayer.png" />
     <None Include="data\spear.png" />
     <None Include="data\big_knife.png" />
     <None Include="data\Dracula.jpg" />
@@ -173,6 +192,8 @@
     <None Include="data\death.png" />
     <None Include="data\dragon.png" />
     <None Include="data\babyPeanut.png" />
+    <None Include="data\died.png" />
+    <None Include="data\lightningplayer.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />

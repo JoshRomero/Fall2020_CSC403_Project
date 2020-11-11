@@ -125,6 +125,28 @@ namespace Fall2020_CSC403_Project
                 Close();
                 return;
             }
+            if (player.Health <= (player.MaxHealth * .2))
+            {
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
+                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                }
+                else
+                {
+                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                }
+            }
+            else
+            {
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
+                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                }
+                else
+                {
+                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                }
+            }
 
             // check collision with walls
             if (HitAWall(player))
@@ -217,11 +239,6 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
-            // TODO set boss up
-            /*if (enemy == cookieMonster)
-            {
-                frmBattle.SetupForBossBattle();
-            }*/
         }
         private void Pick_Up(Item item, Item item2 = null)
         {
@@ -291,7 +308,7 @@ namespace Fall2020_CSC403_Project
 
             frm_Pick_Up.Show();
         }
-       
+
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {

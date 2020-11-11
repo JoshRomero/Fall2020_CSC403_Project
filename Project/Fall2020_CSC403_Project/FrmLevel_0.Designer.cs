@@ -33,6 +33,9 @@
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.lblInGameTime1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picdarkwall4 = new System.Windows.Forms.PictureBox();
+            this.picdarkwall5 = new System.Windows.Forms.PictureBox();
             this.picgirl = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picdarkwall3 = new System.Windows.Forms.PictureBox();
@@ -40,9 +43,8 @@
             this.picPlayer0 = new System.Windows.Forms.PictureBox();
             this.picdarkwall1 = new System.Windows.Forms.PictureBox();
             this.picdarkwall0 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.picdarkwall5 = new System.Windows.Forms.PictureBox();
-            this.picdarkwall4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picgirl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall3)).BeginInit();
@@ -50,8 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall4)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -83,6 +83,39 @@
             this.lblInGameTime1.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime1.TabIndex = 13;
             this.lblInGameTime1.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label1.Location = new System.Drawing.Point(33, 302);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Help me !!!!!";
+            // 
+            // picdarkwall4
+            // 
+            this.picdarkwall4.BackColor = System.Drawing.Color.Transparent;
+            this.picdarkwall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
+            this.picdarkwall4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picdarkwall4.Location = new System.Drawing.Point(-5, 447);
+            this.picdarkwall4.Name = "picdarkwall4";
+            this.picdarkwall4.Size = new System.Drawing.Size(344, 267);
+            this.picdarkwall4.TabIndex = 9;
+            this.picdarkwall4.TabStop = false;
+            // 
+            // picdarkwall5
+            // 
+            this.picdarkwall5.BackColor = System.Drawing.Color.Transparent;
+            this.picdarkwall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
+            this.picdarkwall5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picdarkwall5.Location = new System.Drawing.Point(-5, -1);
+            this.picdarkwall5.Name = "picdarkwall5";
+            this.picdarkwall5.Size = new System.Drawing.Size(344, 229);
+            this.picdarkwall5.TabIndex = 8;
+            this.picdarkwall5.TabStop = false;
             // 
             // picgirl
             // 
@@ -161,39 +194,6 @@
             this.picdarkwall0.TabIndex = 0;
             this.picdarkwall0.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(33, 302);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Help me !!!!!";
-            // 
-            // picdarkwall5
-            // 
-            this.picdarkwall5.BackColor = System.Drawing.Color.Transparent;
-            this.picdarkwall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
-            this.picdarkwall5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall5.Location = new System.Drawing.Point(-5, -1);
-            this.picdarkwall5.Name = "picdarkwall5";
-            this.picdarkwall5.Size = new System.Drawing.Size(344, 229);
-            this.picdarkwall5.TabIndex = 8;
-            this.picdarkwall5.TabStop = false;
-            // 
-            // picdarkwall4
-            // 
-            this.picdarkwall4.BackColor = System.Drawing.Color.Transparent;
-            this.picdarkwall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
-            this.picdarkwall4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall4.Location = new System.Drawing.Point(-5, 447);
-            this.picdarkwall4.Name = "picdarkwall4";
-            this.picdarkwall4.Size = new System.Drawing.Size(344, 267);
-            this.picdarkwall4.TabIndex = 9;
-            this.picdarkwall4.TabStop = false;
-            // 
             // FrmLevel_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +216,8 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picgirl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall3)).EndInit();
@@ -223,8 +225,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picdarkwall4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

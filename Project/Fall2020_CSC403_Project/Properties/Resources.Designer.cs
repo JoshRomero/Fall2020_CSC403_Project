@@ -262,6 +262,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lightningplayer {
+            get {
+                object obj = ResourceManager.GetObject("lightningplayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
@@ -295,6 +305,26 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap spear {
             get {
                 object obj = ResourceManager.GetObject("spear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap superbabyPeanut {
+            get {
+                object obj = ResourceManager.GetObject("superbabyPeanut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap superplayer {
+            get {
+                object obj = ResourceManager.GetObject("superplayer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -99,6 +99,30 @@ namespace Fall2020_CSC403_Project
                 Close();
                 return;
             }
+            if (player.Health <= (player.MaxHealth * .2))
+            {
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
+
+                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                }
+                else
+                {
+                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                }
+            }
+            else
+            {
+                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                {
+                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                }
+                else
+                {
+                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                }
+            }
+           
 
             // check collision with walls
             if (HitAWall(player))
