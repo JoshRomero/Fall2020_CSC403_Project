@@ -130,6 +130,7 @@ namespace Fall2020_CSC403_Project
                 else
                 {
                     player.death();
+                    Death();
                 }
                 instance = null;
                 Close();
@@ -167,7 +168,7 @@ namespace Fall2020_CSC403_Project
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
-            Fall2020_CSC403_Project.Program.updatePersistentHealth(player.Health);
+            Program.updatePersistentHealth(player.Health);
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
@@ -199,12 +200,13 @@ namespace Fall2020_CSC403_Project
                 else
                 {
                     player.death();
+                    Death();
                 }
                 instance = null;
                 Close();
             }
 
-            }
+        }
 
         /// <summary>
         /// applies the damage to the enemy and player when the attack button is pressed
@@ -228,10 +230,16 @@ namespace Fall2020_CSC403_Project
                 else
                 {
                     player.death();
+                    Death();
                 }
                 instance = null;
                 Close();
             }
+        }
+        private static void Death()
+        {
+            death Death = new death();
+            Death.Show();
         }
 
         /// <summary>

@@ -109,7 +109,26 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
+            player.ResetWithPersistents(Program.persistent_health);
+
+            if (Program.bag.has_hammer())
+            {
+                hammer.remove_item();
+                pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
+            }
+
+            if (Program.bag.current_weapon == "long bow")
+            {
+                bow.remove_item();
+                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+            }
+            else
+            {
+                bow.return_item(1001, 101);
+                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+            }
+
+
             // move player
             if (player.status)
             {
@@ -119,7 +138,6 @@ namespace Fall2020_CSC403_Project
             {
                 player.Move();
                 Program.end_game();
-                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
@@ -214,11 +232,6 @@ namespace Fall2020_CSC403_Project
                 Program.change_level(1);
                 Close();
             }
-        }
-        private static void Death()
-        {
-            death Death = new death();
-            Death.Show();
         }
 
         // if player hit a wall check

@@ -16,12 +16,15 @@ namespace Fall2020_CSC403_Project {
         public static Fall2020_CSC403_Project.code.Bag bag;
         public static int persistent_health { get; private set; }
         public static bool traded { get; set; }
+        public static bool swap_weapons;
+        private static int experiance;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
     static void Main() {
+      swap_weapons = false;
       traded = false;
       persistent_health = 20;
       bag = new code.Bag();
@@ -89,7 +92,11 @@ namespace Fall2020_CSC403_Project {
         }
         public static void updatePersistentHealth(int new_health)
         {
-            Fall2020_CSC403_Project.Program.persistent_health = new_health;
+            persistent_health = new_health;
+        }
+        public static void alterExperiance(int XP)
+        {
+            experiance += XP;
         }
     }
 }

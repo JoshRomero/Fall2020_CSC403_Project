@@ -2,8 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel_1 : Form
@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project {
     private Frm_Pick_Up1 frm_Pick_Up;
 
     public FrmLevel_1() {
-          if(Fall2020_CSC403_Project.Program.last_level == 2)
+          if(Program.last_level == 2)
             {
                 InitializeComponent();
             }
@@ -109,8 +109,19 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
-        if(Fall2020_CSC403_Project.Program.bag.has_hammer())
+      player.ResetWithPersistents(Program.persistent_health);
+
+        if(Program.bag.current_weapon == "big knife")
+            {
+                knife.remove_item();
+                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+            }
+        else
+        {
+            knife.return_item(583, 74);
+            picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+        }
+            if (Program.bag.has_hammer())
         {
             walls[4].open_hidden_wall();
         }
@@ -123,38 +134,43 @@ namespace Fall2020_CSC403_Project {
             {
                 player.Move();
                 Program.end_game();
-                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
             }
 
+            if (Program.swap_weapons)
+            {
+                knife.remove_item();
+
+                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+            }
             // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
                 // changes to super peanut if they have hammer
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                    picPlayer1.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                    picPlayer1.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
             else
             {
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                    picPlayer1.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                    picPlayer1.BackgroundImage = Properties.Resources.player;
                 }
             }
             // check collision with walls
@@ -218,12 +234,6 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        private static void Death()
-        {
-            death Death = new death();
-            Death.Show();
-        }
-
         /// <summary>
         /// checks which wall the play may have hit
         /// </summary>
@@ -283,7 +293,7 @@ namespace Fall2020_CSC403_Project {
                 frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
                 if (item.name == "big knife")
                 {
-
+                    Program.swap_weapons = true;
                     traded = item2.drop_item((int)knife.Position.x, (int)knife.Position.y);
                     item.remove_item();
                 }

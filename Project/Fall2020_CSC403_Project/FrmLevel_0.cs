@@ -80,7 +80,7 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
           
-            player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
+            player.ResetWithPersistents(Program.persistent_health);
             // move player
             if (player.status)
             {
@@ -89,7 +89,6 @@ namespace Fall2020_CSC403_Project
             else
             {
                 Program.end_game();
-                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
@@ -99,28 +98,28 @@ namespace Fall2020_CSC403_Project
             if (player.Health <= (player.MaxHealth * .2))
             {
                 // if player have thor's hammer they are now superpeanut
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                    picPlayer0.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                    picPlayer0.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
             else
             {
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                    picPlayer0.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                    picPlayer0.BackgroundImage = Properties.Resources.player;
                 }
             }
            
@@ -151,11 +150,6 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private static void Death()
-        {
-            death Death = new death();
-            Death.Show();
-        }
         // player hit wall check
         private bool HitAWall(Character c)
         {

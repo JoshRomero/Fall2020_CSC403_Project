@@ -34,6 +34,13 @@ namespace Fall2020_CSC403_Project.code
             Position = new Vector2(-100, -100);
             Collider.MovePosition(-100, -100);
         }
+
+        public void return_item(int x, int y)
+        {
+            Position = new Vector2(x, y);
+            Collider.MovePosition(x, y);
+        }
+
         public bool drop_item(int x, int y)
         {
             Position = new Vector2(x, y);

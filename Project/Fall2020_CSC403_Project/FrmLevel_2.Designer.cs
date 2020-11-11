@@ -180,7 +180,7 @@
             this.picWall18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picWall18.Location = new System.Drawing.Point(530, 69);
             this.picWall18.Name = "picWall18";
-            this.picWall18.Size = new System.Drawing.Size(79, 450);
+            this.picWall18.Size = new System.Drawing.Size(79, 400);
             this.picWall18.TabIndex = 5;
             this.picWall18.TabStop = false;
             // 
@@ -266,7 +266,7 @@
             this.pichammer.BackColor = System.Drawing.Color.Transparent;
             this.pichammer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hammer;
             this.pichammer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pichammer.Location = new System.Drawing.Point(632, 578);
+            this.pichammer.Location = new System.Drawing.Point(650, 595);
             this.pichammer.Name = "pichammer";
             this.pichammer.Size = new System.Drawing.Size(49, 50);
             this.pichammer.TabIndex = 22;
