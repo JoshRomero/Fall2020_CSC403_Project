@@ -41,6 +41,7 @@ namespace Fall2020_CSC403_Project
             bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
+            // adjust enemies health
             enemyBatie.MaxHealth = 25;
             cookieMonster.MaxHealth = 30;
             enemyBatie.Health = 25;
@@ -116,39 +117,39 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
-                int level = Fall2020_CSC403_Project.Program.last_level;
-                int level1 = Fall2020_CSC403_Project.Program.level;
-
                 player.Move();
                 Program.end_game();
                 Thread.Sleep(5000);
                 Close();
                 return;
             }
+
+            // turns Mr. peanut into baby peanut if at 20% or under
             if (player.Health <= (player.MaxHealth * .2))
             {
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                // changes peanut to superpeanut if they have thor's hammer and increases strenght
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                    picPlayer2.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                    picPlayer2.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
             else
             {
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                    picPlayer2.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer2.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                    picPlayer2.BackgroundImage = Properties.Resources.player;
                 }
             }
 
@@ -213,6 +214,8 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
+
+        // if player hit a wall check
         private bool HitAWall(Character c)
         {
             bool hitAWall = false;
@@ -227,6 +230,7 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
+        // if player hits a character check
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -236,6 +240,7 @@ namespace Fall2020_CSC403_Project
             return you.Collider.Intersects(other.Collider);
         }
 
+        // player hit a enemy and will fight 
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -244,6 +249,8 @@ namespace Fall2020_CSC403_Project
             frmBattle.Show();
 
         }
+
+        // player hit a item go to pick it up if it is a weapon and they already have a weapon then trade it
         private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
 
@@ -99,8 +93,11 @@ namespace Fall2020_CSC403_Project
                 Close();
                 return;
             }
+
+            // if player is 20% of lower they are now baby peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
+                // if player have thor's hammer they are now superpeanut
                 if (Fall2020_CSC403_Project.Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
@@ -153,6 +150,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        // player hit wall check
         private bool HitAWall(Character c)
         {
             bool hitAWall = false;
@@ -167,11 +165,13 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
+        // player hit charactor check
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }
 
+        // player hit enemy so fight them
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -184,6 +184,8 @@ namespace Fall2020_CSC403_Project
                 frmBattle.SetupForBossBattle();
             }
         }
+
+        // player hit girl so save her
         private void save(Enemy enemy)
         {
             player.ResetMoveSpeed();

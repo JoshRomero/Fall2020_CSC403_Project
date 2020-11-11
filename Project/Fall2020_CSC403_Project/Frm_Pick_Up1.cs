@@ -1,13 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -15,25 +8,23 @@ namespace Fall2020_CSC403_Project
     public partial class Frm_Pick_Up1 : Form
     {
         public static Frm_Pick_Up1 instance = null;
-        private Player player;
         private Item item;
         private Item item2;
         private bool trade_weapon;
         private Frm_Worthy frmWorthy;
         public Frm_Pick_Up1(int initial)
         {
-            // not trade
+            // if the player is not trading
             if (initial == 1)
             {
                 InitializeComponent1();
             }
-            // trade
+            // if the player is trading
             else if(initial == 2)
             {
                 InitializeComponent();
             }
             
-            player = Game.player; 
         }
         // not trade
         public void Setup()
@@ -54,6 +45,7 @@ namespace Fall2020_CSC403_Project
             BackColor = item.Color;
         }
 
+        // not trading
         public static Frm_Pick_Up1 GetInstance(Item item)
         {
             if (instance == null)
@@ -64,6 +56,8 @@ namespace Fall2020_CSC403_Project
             }
             return instance;
         }
+
+        // trading
         public static Frm_Pick_Up1 GetInstance2(Item item, Item item2)
         {
             if (instance == null)
@@ -76,6 +70,10 @@ namespace Fall2020_CSC403_Project
             }
             return instance;
         }
+
+        /// <summary>
+        /// handle all the picking up items and trading of weapons
+        /// </summary>
         private void Pick_Up_Click(object sender, EventArgs e)
         {
             
@@ -95,11 +93,21 @@ namespace Fall2020_CSC403_Project
             }
 
         }
+
+        /// <summary>
+        /// handles the picking up of thor's hammer
+        /// </summary>
         private void Worthy()
         {
             frmWorthy = Frm_Worthy.GetInstance();
             frmWorthy.Show();
         }
+
+        /// <summary>
+        /// disables the exit button at the top-right of the sceen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Closing(Object sender, CancelEventArgs e)
         {
             if (instance == null)
