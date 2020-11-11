@@ -22,6 +22,8 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private Frm_Pick_Up1 frm_Pick_Up;
+    private death death;
+
     public FrmLevel_1() {
           if(Fall2020_CSC403_Project.Program.last_level == 2)
             {
@@ -122,8 +124,8 @@ namespace Fall2020_CSC403_Project {
             {
                 player.Move();
                 Program.end_game();
+                Death();
                 Thread.Sleep(5000);
-                FrmLevel_1.Death();
                 Close();
                 return;
             }
