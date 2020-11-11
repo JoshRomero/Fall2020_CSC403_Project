@@ -12,11 +12,11 @@ namespace Fall2020_CSC403_Project
 {
     public partial class death : Form
     {
+        public static death instance = null;
         public death()
         {
             InitializeComponent();
         }
-
         private void death_Load(object sender, EventArgs e)
         {
 

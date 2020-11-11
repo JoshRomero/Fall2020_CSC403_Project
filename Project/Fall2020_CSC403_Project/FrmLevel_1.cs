@@ -120,6 +120,7 @@ namespace Fall2020_CSC403_Project {
                 player.Move();
                 Program.end_game();
                 Thread.Sleep(5000);
+                new death();
                 Close();
                 return;
             }
@@ -236,6 +237,10 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
+        }
+
+        private void Death(death death) {
+            death.Show();
         }
         private void Pick_Up(Item item, Item item2 = null)
         {
