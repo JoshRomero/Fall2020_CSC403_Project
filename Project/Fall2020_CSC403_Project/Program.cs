@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
         public static int persistent_health { get; private set; }
         public static bool traded { get; set; }
         public static bool swap_weapons;
+        private static int experiance;
 
         /// <summary>
         /// The main entry point for the application.
@@ -92,6 +93,10 @@ namespace Fall2020_CSC403_Project {
         public static void updatePersistentHealth(int new_health)
         {
             persistent_health = new_health;
+        }
+        public static void alterExperiance(int XP)
+        {
+            experiance += XP;
         }
     }
 }
