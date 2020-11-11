@@ -110,6 +110,25 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             player.ResetWithPersistents(Program.persistent_health);
+
+            if (Program.bag.has_hammer())
+            {
+                hammer.remove_item();
+                pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
+            }
+
+            if (Program.bag.current_weapon == "long bow")
+            {
+                bow.remove_item();
+                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+            }
+            else
+            {
+                bow.return_item(1001, 101);
+                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+            }
+
+
             // move player
             if (player.status)
             {

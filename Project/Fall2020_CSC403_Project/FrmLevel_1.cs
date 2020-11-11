@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel_1 : Form
@@ -109,7 +110,18 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       player.ResetWithPersistents(Program.persistent_health);
-        if(Program.bag.has_hammer())
+
+        if(Program.bag.current_weapon == "big knife")
+            {
+                knife.remove_item();
+                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+            }
+        else
+        {
+            knife.return_item(583, 74);
+            picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+        }
+            if (Program.bag.has_hammer())
         {
             walls[4].open_hidden_wall();
         }
@@ -127,6 +139,12 @@ namespace Fall2020_CSC403_Project {
                 return;
             }
 
+            if (Program.swap_weapons)
+            {
+                knife.remove_item();
+
+                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
+            }
             // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
@@ -275,7 +293,7 @@ namespace Fall2020_CSC403_Project {
                 frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
                 if (item.name == "big knife")
                 {
-
+                    Program.swap_weapons = true;
                     traded = item2.drop_item((int)knife.Position.x, (int)knife.Position.y);
                     item.remove_item();
                 }

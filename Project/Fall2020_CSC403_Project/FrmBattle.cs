@@ -206,7 +206,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
 
-            }
+        }
 
         /// <summary>
         /// applies the damage to the enemy and player when the attack button is pressed
