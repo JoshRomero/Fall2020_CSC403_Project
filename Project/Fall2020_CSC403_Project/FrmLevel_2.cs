@@ -109,7 +109,7 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
+            player.ResetWithPersistents(Program.persistent_health);
             // move player
             if (player.status)
             {
@@ -119,7 +119,6 @@ namespace Fall2020_CSC403_Project
             {
                 player.Move();
                 Program.end_game();
-                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
@@ -214,11 +213,6 @@ namespace Fall2020_CSC403_Project
                 Program.change_level(1);
                 Close();
             }
-        }
-        private static void Death()
-        {
-            death Death = new death();
-            Death.Show();
         }
 
         // if player hit a wall check

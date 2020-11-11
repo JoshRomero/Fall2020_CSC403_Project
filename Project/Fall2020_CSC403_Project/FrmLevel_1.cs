@@ -2,7 +2,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.Threading;
 
 namespace Fall2020_CSC403_Project {
@@ -24,7 +23,7 @@ namespace Fall2020_CSC403_Project {
     private Frm_Pick_Up1 frm_Pick_Up;
 
     public FrmLevel_1() {
-          if(Fall2020_CSC403_Project.Program.last_level == 2)
+          if(Program.last_level == 2)
             {
                 InitializeComponent();
             }
@@ -109,8 +108,8 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      player.ResetWithPersistents(Fall2020_CSC403_Project.Program.persistent_health);
-        if(Fall2020_CSC403_Project.Program.bag.has_hammer())
+      player.ResetWithPersistents(Program.persistent_health);
+        if(Program.bag.has_hammer())
         {
             walls[4].open_hidden_wall();
         }
@@ -123,7 +122,6 @@ namespace Fall2020_CSC403_Project {
             {
                 player.Move();
                 Program.end_game();
-                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
@@ -133,28 +131,28 @@ namespace Fall2020_CSC403_Project {
             if (player.Health <= (player.MaxHealth * .2))
             {
                 // changes to super peanut if they have hammer
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
+                    picPlayer1.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
+                    picPlayer1.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
             else
             {
-                if (Fall2020_CSC403_Project.Program.bag.has_hammer())
+                if (Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
+                    picPlayer1.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
                     player.AlterStrenght(2);
-                    picPlayer1.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
+                    picPlayer1.BackgroundImage = Properties.Resources.player;
                 }
             }
             // check collision with walls
@@ -216,12 +214,6 @@ namespace Fall2020_CSC403_Project {
                 Program.change_level(0);
                 Close();
             }
-        }
-
-        private static void Death()
-        {
-            death Death = new death();
-            Death.Show();
         }
 
         /// <summary>
