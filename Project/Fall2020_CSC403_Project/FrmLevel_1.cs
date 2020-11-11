@@ -123,7 +123,7 @@ namespace Fall2020_CSC403_Project {
                 player.Move();
                 Program.end_game();
                 Thread.Sleep(5000);
-                new death();
+                FrmLevel_1.Death();
                 Close();
                 return;
             }
@@ -217,11 +217,17 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-    /// <summary>
-    /// checks which wall the play may have hit
-    /// </summary>
-    /// <returns></returns> the wall the player hit
-    private bool HitAWall(Character c) {
+        private static void Death()
+        {
+            death Death = new death();
+            Death.Show();
+        }
+
+        /// <summary>
+        /// checks which wall the play may have hit
+        /// </summary>
+        /// <returns></returns> the wall the player hit
+        private bool HitAWall(Character c) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
         if (c.Collider.Intersects(walls[w].Collider)) {
@@ -260,10 +266,6 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
 
-        }
-
-        private void Death(death death) {
-            death.Show();
         }
 
         /// <summary>
@@ -357,5 +359,7 @@ namespace Fall2020_CSC403_Project {
                     break;
             }
         }
-  }
+
+        
+    }
 }
