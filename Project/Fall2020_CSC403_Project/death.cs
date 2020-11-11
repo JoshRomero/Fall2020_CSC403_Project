@@ -16,5 +16,10 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
         }
+
+        private void death_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
