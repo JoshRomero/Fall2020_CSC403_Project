@@ -2,9 +2,7 @@
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.ComponentModel;
-using System.Data.SqlTypes;
 using System.Drawing;
-using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
@@ -16,6 +14,10 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
 
+        /// <summary>
+        /// Creates the initial screen for battle 
+        /// </summary>
+        /// <param name="current_weapon"></param> changes the attack button depending on the type of weapon in bag
         private FrmBattle(string current_weapon)
         {
             if (current_weapon == "big knife")
@@ -35,6 +37,9 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        /// <summary>
+        /// sets the appropriate enemy that player is fighting
+        /// </summary>
         public void Setup()
         {
             // update for this enemy
@@ -51,6 +56,9 @@ namespace Fall2020_CSC403_Project
             UpdateHealthBars();
         }
 
+        /// <summary>
+        /// set the special features for final battle
+        /// </summary>
         public void SetupForBossBattle()
         {
             picBossBattle.Location = Point.Empty;
@@ -63,6 +71,10 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
+        /// <summary>
+        /// creates and return the intance with the specific enemy
+        /// </summary>
+        /// <returns></returns>
         public static FrmBattle GetInstance(Enemy enemy, string current_weapon = null)
         {
             if (instance == null)
@@ -74,10 +86,17 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
+        /// <summary>
+        /// updates the potion count on the battle screen during battle
+        /// </summary>
         private void UpdatePotionsCount()
         {
             num_potions.Text = ("X " + Program.bag.num_potions().ToString());
         }
+
+        /// <summary>
+        /// updates the health bars during battle
+        /// </summary>
         private void UpdateHealthBars()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -91,7 +110,9 @@ namespace Fall2020_CSC403_Project
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
-
+        /// <summary>
+        /// applies the damage to the enemy and player when the attack button is pressed
+        /// </summary>
         private void btnAttack_Click(object sender, EventArgs e)
         {
             player.OnAttack(-3);
@@ -114,6 +135,9 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
+        /// <summary>
+        /// increases the health of the player when the potion button is pressed
+        /// </summary>
         private void btnpotion_Click(object sender, EventArgs e)
         {
             if ((Program.bag.get_bag_size() > 0) && (Program.bag.num_potions() > 0) && (player.Health != player.MaxHealth))
@@ -127,11 +151,19 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        /// <summary>
+        /// modifies the enemy's health
+        /// </summary>
+        /// <param name="amount"></param> how much the enemy health will be changed
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
         }
 
+        /// <summary>
+        /// modifies the player's health 
+        /// </summary>
+        /// <param name="amount"></param> how much the players health will be changed
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
@@ -145,6 +177,9 @@ namespace Fall2020_CSC403_Project
         }
 
 
+        /// <summary>
+        /// applies the damage to the enemy and player when the stab button is pressed
+        /// </summary>
         private void Stab_Click(object sender, EventArgs e)
         {
             player.OnAttack(-7);
@@ -171,6 +206,9 @@ namespace Fall2020_CSC403_Project
 
             }
 
+        /// <summary>
+        /// applies the damage to the enemy and player when the attack button is pressed
+        /// </summary>
         private void Shoot_Click(object sender, EventArgs e)
         {           
             player.OnAttack(-10);
@@ -195,6 +233,10 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
+
+        /// <summary>
+        /// this disables the cancel button on the top right of the screen
+        /// </summary>
         private void Form1_Closing(Object sender, CancelEventArgs e)
         {
             if (instance == null)

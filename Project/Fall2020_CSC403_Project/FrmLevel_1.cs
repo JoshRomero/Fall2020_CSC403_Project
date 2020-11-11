@@ -61,6 +61,7 @@ namespace Fall2020_CSC403_Project {
       knife.name = "big knife";
       bow.name = "long bow";
 
+      // set all images
       dragon.Img = picdragon.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -68,6 +69,7 @@ namespace Fall2020_CSC403_Project {
       knife.Img = picbig_knife.BackgroundImage;
       bow.Img = picbow.BackgroundImage;
 
+      // set every things color
       dragon.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -75,6 +77,7 @@ namespace Fall2020_CSC403_Project {
       knife.Color = Color.DarkRed;
       bow.Color = Color.DarkGreen;
 
+      
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -127,6 +130,7 @@ namespace Fall2020_CSC403_Project {
             // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
+                // changes to super peanut if they have hammer
                 if (Fall2020_CSC403_Project.Program.bag.has_hammer())
                 {
                     player.AlterStrenght(3);
@@ -156,7 +160,7 @@ namespace Fall2020_CSC403_Project {
             player.MoveBack();
       }
 
-        // check collision with enemies
+        // check collision with enemies or items
         if (HitAChar(player, enemyPoisonPacket)) {
             Fight(enemyPoisonPacket);
         }
@@ -180,9 +184,9 @@ namespace Fall2020_CSC403_Project {
             {
                 Pick_Up(knife);
             }
-        }
-      else if (HitAItem(player, bow))
-      {
+         }
+         else if (HitAItem(player, bow))
+         {
                 if (Program.bag.has_weapon())
                 {
                     Pick_Up(bow, knife);
@@ -191,13 +195,15 @@ namespace Fall2020_CSC403_Project {
                 {
                     Pick_Up(bow);
                 }
-            }
+         }
 
             // update player's picture box
             picPlayer1.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
             picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
             picdragon.Location = new Point((int)dragon.Position.x, (int)dragon.Position.y);
+            
+            // changes screen if player leave the level
             if (picPlayer1.Location.X >= 1176)
             {
                 Program.change_level(2);
@@ -210,6 +216,10 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+    /// <summary>
+    /// checks which wall the play may have hit
+    /// </summary>
+    /// <returns></returns> the wall the player hit
     private bool HitAWall(Character c) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
@@ -221,14 +231,27 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
-    private bool HitAChar(Character you, Character other) {
+        /// <summary>
+        /// checks which character the play may have hit
+        /// </summary>
+        /// <returns></returns> the character the player hit
+        private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
-    private bool HitAItem(Character you, Item other)
+
+        /// <summary>
+        /// checks which item the play may have hit
+        /// </summary>
+        /// <returns></returns> the item the player hit  
+        private bool HitAItem(Character you, Item other)
     {
         return you.Collider.Intersects(other.Collider);
     }
 
+        /// <summary>
+        /// starts the fight with an enemy
+        /// </summary>
+        /// <param name="enemy"></param> the enemy the player is fighting
         private void Fight(Enemy enemy) {
             player.ResetMoveSpeed();
             player.MoveBack();
@@ -237,6 +260,12 @@ namespace Fall2020_CSC403_Project {
             frmBattle.Show();
 
         }
+
+        /// <summary>
+        /// deals with the picking up potions and weapons process 
+        /// </summary>
+        /// <param name="item"></param> the item the player hit 
+        /// <param name="item2"></param> the weapon the player already has in bag
         private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();
