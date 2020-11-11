@@ -177,6 +177,7 @@ namespace Fall2020_CSC403_Project {
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();

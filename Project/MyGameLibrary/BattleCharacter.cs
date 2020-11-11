@@ -43,7 +43,12 @@ namespace Fall2020_CSC403_Project.code {
             }
 
     }
-    public void ResetWithPersistents(int per_health)
+        public void AlterStrenght(int amount)
+        {
+            strength = amount;
+
+        }
+        public void ResetWithPersistents(int per_health)
         {
             Health = per_health;
         }

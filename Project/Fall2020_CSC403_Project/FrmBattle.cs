@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
@@ -120,7 +121,7 @@ namespace Fall2020_CSC403_Project
                 Program.bag.use_item("Healing potion");
                 player.AlterHealth(5, "heal");
                 UpdateHealthBars();
-                Fall2020_CSC403_Project.Program.updatePersistentHealth(player.Health);
+                Program.updatePersistentHealth(player.Health);
                 UpdatePotionsCount();
 
             }
@@ -194,7 +195,18 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
-     } 
+        private void Form1_Closing(Object sender, CancelEventArgs e)
+        {
+            if (instance == null)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+    } 
 }
 
    

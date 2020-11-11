@@ -103,11 +103,12 @@ namespace Fall2020_CSC403_Project
             {
                 if (Fall2020_CSC403_Project.Program.bag.has_hammer())
                 {
-
+                    player.AlterStrenght(3);
                     picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
+                    player.AlterStrenght(2);
                     picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.babyPeanut;
                 }
             }
@@ -115,10 +116,12 @@ namespace Fall2020_CSC403_Project
             {
                 if (Fall2020_CSC403_Project.Program.bag.has_hammer())
                 {
+                    player.AlterStrenght(3);
                     picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.superplayer;
                 }
                 else
                 {
+                    player.AlterStrenght(2);
                     picPlayer0.BackgroundImage = Fall2020_CSC403_Project.Properties.Resources.player;
                 }
             }
