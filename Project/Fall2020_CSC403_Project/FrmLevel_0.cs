@@ -89,6 +89,7 @@ namespace Fall2020_CSC403_Project
             else
             {
                 Program.end_game();
+                Death();
                 Thread.Sleep(5000);
                 Close();
                 return;
@@ -150,6 +151,11 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        private static void Death()
+        {
+            death Death = new death();
+            Death.Show();
+        }
         // player hit wall check
         private bool HitAWall(Character c)
         {
