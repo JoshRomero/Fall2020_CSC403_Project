@@ -30,10 +30,10 @@ namespace Fall2020_CSC403_Project
 
 
             // the position of the onject 
-            player = new Player(CreatePosition(picPlayer2), CreateCollider(picPlayer2, PADDING));
+            player = new Player(CreatePosition(picPlayer3), CreateCollider(picPlayer3, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
-            cookieMonster = new Enemy(CreatePosition(piccookie), CreateCollider(piccookie, PADDING));
-            enemyBatie = new Enemy(CreatePosition(picbat), CreateCollider(picbat, PADDING));
+            cookieMonster = new Enemy(CreatePosition(piccookie3), CreateCollider(piccookie3, PADDING));
+            enemyBatie = new Enemy(CreatePosition(picbat3), CreateCollider(picbat3, PADDING));
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
             // adjust enemies health
@@ -48,8 +48,8 @@ namespace Fall2020_CSC403_Project
 
             // setting the images for the background when hit
             potion.Img = pictpotion2.BackgroundImage;
-            cookieMonster.Img = piccookie.BackgroundImage;
-            enemyBatie.Img = picbat.BackgroundImage;
+            cookieMonster.Img = piccookie3.BackgroundImage;
+            enemyBatie.Img = picbat3.BackgroundImage;
             hammer.Img = pichammer.BackgroundImage;
 
             // adding the background color when hit
@@ -59,7 +59,7 @@ namespace Fall2020_CSC403_Project
             hammer.Color = Color.DarkBlue;
 
             walls = new Character[NUM_WALLS];
-            for (int w = 22; w < NUM_WALLS + 13; w++)
+            for (int w = 22; w < NUM_WALLS + 22; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w - 22] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
@@ -122,22 +122,22 @@ namespace Fall2020_CSC403_Project
                 // changes peanut to superpeanut if they have thor's hammer and increases strenght
                 if (Program.bag.has_hammer())
                 {
-                    picPlayer2.BackgroundImage = Properties.Resources.superbabyPeanut;
+                    picPlayer3.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
-                    picPlayer2.BackgroundImage = Properties.Resources.babyPeanut;
+                    picPlayer3.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
             else
             {
                 if (Program.bag.has_hammer())
                 {
-                    picPlayer2.BackgroundImage = Properties.Resources.superplayer;
+                    picPlayer3.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
-                    picPlayer2.BackgroundImage = Properties.Resources.player;
+                    picPlayer3.BackgroundImage = Properties.Resources.player;
                 }
             }
 
@@ -165,17 +165,17 @@ namespace Fall2020_CSC403_Project
             }
  
             // update player's picture box
-            picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
-            picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
-            piccookie.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
+            picPlayer3.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            picbat3.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
+            piccookie3.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
 
             // if the player passes the boss and exits the screen
-            if (picPlayer2.Location.X >= 1176)
+            if (picPlayer3.Location.X >= 1176)
             {
                 Program.change_level(3);
                 Close();
             }
-            else if (picPlayer2.Location.X <= 0)
+            else if (picPlayer3.Location.X <= 0)
             {
                 Program.change_level(1);
                 Close();
