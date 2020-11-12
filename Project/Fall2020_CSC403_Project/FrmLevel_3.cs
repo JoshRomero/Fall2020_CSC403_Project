@@ -37,10 +37,10 @@ namespace Fall2020_CSC403_Project
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
             // adjust enemies health
-            goldenBidoof.MaxHealth = 25;
-            pepsiMan.MaxHealth = 30;
-            goldenBidoof.Health = 25;
-            pepsiMan.Health = 30;
+            goldenBidoof.MaxHealth = 40;
+            pepsiMan.MaxHealth = 60;
+            goldenBidoof.Health = 40;
+            pepsiMan.Health = 60;
 
             // name of the items
             potion.name = "Healing potion";
