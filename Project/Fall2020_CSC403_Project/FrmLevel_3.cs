@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FrmLevel_2 : Form
+    public partial class FrmLevel_3 : Form
     {
         private Player player;
         private Item potion;
@@ -16,10 +16,8 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private Frm_Pick_Up1 frm_Pick_Up;
-        private Item knife; 
-        private Item bow;
-        private bool traded;
-        public FrmLevel_2()
+        private Item hammer;
+        public FrmLevel_3()
         {
             InitializeComponent();
         }
@@ -36,8 +34,7 @@ namespace Fall2020_CSC403_Project
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
             cookieMonster = new Enemy(CreatePosition(piccookie), CreateCollider(piccookie, PADDING));
             enemyBatie = new Enemy(CreatePosition(picbat), CreateCollider(picbat, PADDING));
-            knife = new Item(CreatePosition(picbig_knife), CreateCollider(picbig_knife, PADDING));
-            bow = new Item(CreatePosition(picbow), CreateCollider(picbow, PADDING));
+            hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
             // adjust enemies health
             enemyBatie.MaxHealth = 25;
@@ -45,34 +42,27 @@ namespace Fall2020_CSC403_Project
             enemyBatie.Health = 25;
             cookieMonster.Health = 30;
 
-            // setting if an item is a weapon of not 
-            knife.is_weapon = true;
-            bow.is_weapon = true;
-
             // name of the items
             potion.name = "Healing potion";
-            knife.name = "big knife";
-            bow.name = "long bow";
+            hammer.name = "Mjölnir";
 
             // setting the images for the background when hit
             potion.Img = pictpotion2.BackgroundImage;
             cookieMonster.Img = piccookie.BackgroundImage;
             enemyBatie.Img = picbat.BackgroundImage;
-            knife.Img = picbig_knife.BackgroundImage;
-            bow.Img = picbow.BackgroundImage;
+            hammer.Img = pichammer.BackgroundImage;
 
             // adding the background color when hit
             potion.Color = Color.DeepPink;
             cookieMonster.Color = Color.Blue;
             enemyBatie.Color = Color.DarkSlateGray;
-            knife.Color = Color.DarkRed;
-            bow.Color = Color.DarkGreen;
+            hammer.Color = Color.DarkBlue;
 
             walls = new Character[NUM_WALLS];
-            for (int w = 13; w < NUM_WALLS+13; w++)
+            for (int w = 13; w < NUM_WALLS + 13; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w-13] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                walls[w - 13] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
             Game.player = player;
@@ -106,17 +96,11 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetWithPersistents(Program.persistent_health);
 
-            if (Program.bag.current_weapon == "long bow")
+            if (Program.bag.has_hammer())
             {
-                bow.remove_item();
-                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
+                hammer.remove_item();
+                pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
             }
-            else
-            {
-                bow.return_item(1001, 101);
-                picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
-            }
-
 
             // move player
             if (player.status)
@@ -170,6 +154,10 @@ namespace Fall2020_CSC403_Project
             {
                 Pick_Up(potion);
             }
+            else if (HitAItem(player, hammer))
+            {
+                Pick_Up(hammer);
+            }
             // check collision with enemies
             if (HitAChar(player, enemyBatie))
             {
@@ -179,28 +167,7 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(cookieMonster);
             }
-            else if (HitAItem(player, knife))
-            {
-                if (Program.bag.has_weapon())
-                {
-                    Pick_Up(knife, bow);
-                }
-                else
-                {
-                    Pick_Up(knife);
-                }
-            }
-            else if (HitAItem(player, bow))
-            {
-                if (Program.bag.has_weapon())
-                {
-                    Pick_Up(bow, knife);
-                }
-                else
-                {
-                    Pick_Up(bow);
-                }
-            }
+ 
             // update player's picture box
             picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
@@ -259,71 +226,30 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            if (item.is_weapon && Program.bag.has_weapon() && item2 != null)
-            {
-                frm_Pick_Up = Frm_Pick_Up1.GetInstance2(item2, item);
-                if (item.name == "big knife")
-                {
+            frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
+            item.remove_item();
 
-                    traded = item2.drop_item((int)knife.Position.x, (int)knife.Position.y);
-                    item.remove_item();
-                }
-                else if (item.name == "long bow")
-                {
-                    traded = item2.drop_item((int)bow.Position.x, (int)bow.Position.y);
-                    item.remove_item();
-                }
-
-            }
-            else
-            {
-                frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
-                item.remove_item();
-            }
 
             if (!item.is_weapon)
             {
-                if(item.name == "Healing potion")
+                if (item.name == "Healing potion")
                 {
                     pictpotion2.Location = new Point((int)potion.Position.x, (int)potion.Position.y);
 
                 }
-            }
-            else if (item.is_weapon)
-            {
-                if (traded)
-                {
-                    if (item2.name == "big knife")
-                    {
-                        picbig_knife.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
-                        picbow.Location = new Point((int)item.Position.x, (int)item.Position.y);
-                    }
-                    else if (item2.name == "long bow")
-                    {
-                        picbow.Location = new Point((int)item2.Position.x, (int)item2.Position.y);
-                        picbig_knife.Location = new Point((int)item.Position.x, (int)item.Position.y);
-                    }
-                }
                 else
                 {
-                    if (item.name == "big knife")
-                    {
-                        picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
-                    }
-                    else if (item.name == "long bow")
-                    {
-                        picbow.Location = new Point((int)bow.Position.x, (int)bow.Position.y);
-                    }
+                    pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
                 }
             }
-
+           
             frm_Pick_Up.Show();
         }
 
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -354,4 +280,4 @@ namespace Fall2020_CSC403_Project
 
 
     }
-    }
+}
