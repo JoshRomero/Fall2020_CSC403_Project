@@ -82,6 +82,12 @@
     <Compile Include="FrmLevel_3.Designer.cs">
       <DependentUpon>FrmLevel_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNotWorthy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotWorthy.Designer.cs">
+      <DependentUpon>FrmNotWorthy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel_3.resx">
       <DependentUpon>FrmLevel_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotWorthy.resx">
+      <DependentUpon>FrmNotWorthy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSave.resx">
       <DependentUpon>FrmSave.cs</DependentUpon>

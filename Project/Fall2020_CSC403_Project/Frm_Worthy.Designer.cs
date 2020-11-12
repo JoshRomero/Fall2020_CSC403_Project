@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnworthy = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.WorthyPN = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.WorthyPN)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.lightningplayer;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(279, 110);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 322);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -66,6 +55,17 @@
             this.btnworthy.UseVisualStyleBackColor = true;
             this.btnworthy.Click += new System.EventHandler(this.btnworthy_Click);
             // 
+            // WorthyPN
+            // 
+            this.WorthyPN.BackColor = System.Drawing.Color.Transparent;
+            this.WorthyPN.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.lightningplayer;
+            this.WorthyPN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WorthyPN.Location = new System.Drawing.Point(279, 110);
+            this.WorthyPN.Name = "WorthyPN";
+            this.WorthyPN.Size = new System.Drawing.Size(223, 322);
+            this.WorthyPN.TabIndex = 0;
+            this.WorthyPN.TabStop = false;
+            // 
             // Frm_Worthy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -74,10 +74,10 @@
             this.ClientSize = new System.Drawing.Size(822, 575);
             this.Controls.Add(this.btnworthy);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.WorthyPN);
             this.Name = "Frm_Worthy";
             this.Text = "Frmworthy";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WorthyPN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox WorthyPN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnworthy;
     }

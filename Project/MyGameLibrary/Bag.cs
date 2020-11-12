@@ -38,6 +38,14 @@ namespace Fall2020_CSC403_Project.code
             items.Add(new_item);
             bag_size++;
         }
+
+        public void remove_item(string item)
+        {
+            items.Remove(item);
+            bag_size--;
+
+
+        }
         public void use_item(string tool)
         {
             bool used = false;

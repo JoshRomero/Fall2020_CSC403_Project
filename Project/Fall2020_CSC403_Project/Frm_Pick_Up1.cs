@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
         private Item item2;
         private bool trade_weapon;
         private Frm_Worthy frmWorthy;
+        private FrmNotWorthy frmNotWorthy;
         public Frm_Pick_Up1(int initial)
         {
             // if the player is not trading
@@ -89,7 +90,16 @@ namespace Fall2020_CSC403_Project
                 Close();
             if (item.name == "Mjölnir")
             {
-                Worthy();
+                if (Program.PN_CurrentLevel >= 3)
+                {
+                    Worthy();
+                }
+                else
+                {
+
+                    NotWorthy();
+                    Program.bag.remove_item(item.name);
+                }
             }
 
         }
@@ -101,6 +111,15 @@ namespace Fall2020_CSC403_Project
         {
             frmWorthy = Frm_Worthy.GetInstance();
             frmWorthy.Show();
+        }
+
+        /// <summary>
+        /// handles the picking up of thor's hammer
+        /// </summary>
+        private void NotWorthy()
+        {
+            frmNotWorthy = FrmNotWorthy.GetInstance();
+            frmNotWorthy.Show();
         }
 
         /// <summary>
