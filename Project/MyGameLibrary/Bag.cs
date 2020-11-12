@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project.code
     {
         List<string> items = new List<string>();
         private int bag_size;
-        private bool has_a_weapon;
+        public bool has_a_weapon;
         public string current_weapon { get; set; }
 
 
@@ -100,6 +100,10 @@ namespace Fall2020_CSC403_Project.code
             items.Remove(curr_weap);
             items.Add(next_weap);
             current_weapon = next_weap;
+        }
+        public void remove_all()
+        {
+            items.Clear();
         }
     }
 }

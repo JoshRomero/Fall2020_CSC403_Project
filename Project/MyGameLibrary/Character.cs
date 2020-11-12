@@ -30,9 +30,15 @@ namespace Fall2020_CSC403_Project.code {
             status = false;
             Position = new Vector2(-100, -100);
             Collider.MovePosition(-100, -100);
-            
+
         }
-    public void open_hidden_wall()
+    public void reset_PN()
+        {
+            Position = new Vector2(119, 510);
+            Collider.MovePosition(119, 510);
+        }
+
+        public void open_hidden_wall()
     {
         Collider.MovePosition(-100, -100);
     }

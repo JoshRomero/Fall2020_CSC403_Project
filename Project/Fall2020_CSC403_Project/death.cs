@@ -33,17 +33,18 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnReplay_Click(object sender, EventArgs e)
         {
             instance = null;
+            Program.play_again();
             Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnGiveUp_Click(object sender, EventArgs e)
         {
             instance = null;
-            FrmLevel_1 frmLevel_1 = new FrmLevel_1();
-            frmLevel_1.Show();
+            Program.end_game();
+            Close();
         }
     }
 }

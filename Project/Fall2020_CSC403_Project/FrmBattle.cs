@@ -164,7 +164,7 @@ namespace Fall2020_CSC403_Project
                 }
                 else
                 {
-                    player.death();
+                    player.status = false;
                     Death();
                 }
                 instance = null;

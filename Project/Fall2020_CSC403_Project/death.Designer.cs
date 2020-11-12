@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReplay = new System.Windows.Forms.Button();
+            this.btnGiveUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnReplay
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button1.Location = new System.Drawing.Point(528, 395);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 43);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Give Up";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnReplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnReplay.Location = new System.Drawing.Point(168, 395);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(104, 43);
+            this.btnReplay.TabIndex = 0;
+            this.btnReplay.Text = "Replay";
+            this.btnReplay.UseVisualStyleBackColor = true;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
-            // button2
+            // btnGiveUp
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button2.Location = new System.Drawing.Point(143, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 43);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Retry";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnGiveUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnGiveUp.Location = new System.Drawing.Point(508, 395);
+            this.btnGiveUp.Name = "btnGiveUp";
+            this.btnGiveUp.Size = new System.Drawing.Size(104, 43);
+            this.btnGiveUp.TabIndex = 1;
+            this.btnGiveUp.Text = "Give Up";
+            this.btnGiveUp.UseVisualStyleBackColor = true;
+            this.btnGiveUp.Click += new System.EventHandler(this.btnGiveUp_Click);
             // 
             // death
             // 
@@ -62,8 +62,8 @@
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.died;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGiveUp);
+            this.Controls.Add(this.btnReplay);
             this.DoubleBuffered = true;
             this.Name = "death";
             this.Text = "death";
@@ -74,7 +74,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnReplay;
+        private System.Windows.Forms.Button btnGiveUp;
     }
 }

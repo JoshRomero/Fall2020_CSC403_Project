@@ -20,13 +20,15 @@ namespace Fall2020_CSC403_Project {
         public static int experiance;
         public static int strength  { get; set; }
         public static int PN_CurrentLevel { get; set; }
+        public static bool replay { get; set; }
 
-/// <summary>
-/// The main entry point for the application.
-/// </summary>
-[STAThread]
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
     static void Main() {
       strength = 2;
+      replay = false;
       PN_CurrentLevel = 1;
       experiance = 0;
       swap_weapons = false;
@@ -57,12 +59,16 @@ namespace Fall2020_CSC403_Project {
                         break;
                     case 1:
                         Application.Run(new FrmLevel_1());
-                        if (last_level2 == level)
+                        if (last_level2 == level && !replay)
                         {
                             exit = true;
                         }
                         else
                         {
+                            if (replay)
+                            {
+                                replay = false;
+                            }
                             last_level2 = level;
                         }
                         break;
@@ -123,6 +129,21 @@ namespace Fall2020_CSC403_Project {
         public static void reset_XP()
         {
             experiance = 0;
+        }
+
+        public static void play_again()
+        {
+            persistent_health = 20;
+            replay = true;
+            experiance = 0;
+            PN_CurrentLevel = 1;
+            strength = 2;
+            bag.current_weapon = null;
+            bag.has_a_weapon = false;
+            bag.remove_all();
+            change_level(1);
+
+
         }
     }
 }

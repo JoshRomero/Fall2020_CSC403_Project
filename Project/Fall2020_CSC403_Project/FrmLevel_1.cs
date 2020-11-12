@@ -22,15 +22,20 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private Frm_Pick_Up1 frm_Pick_Up;
+    private wall4_NoHammer wall4_nohammer;
 
     public FrmLevel_1() {
-          if(Program.last_level == 2)
+          if(Program.last_level == 2 && !Program.replay)
             {
                 InitializeComponent();
             }
             else
             {
                 InitializeComponent1();
+                if (Program.replay)
+                {
+                    Program.replay = false;
+                }
             }
       
     }
@@ -121,20 +126,23 @@ namespace Fall2020_CSC403_Project {
             knife.return_item(583, 74);
             picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
         }
-            if (Program.bag.has_hammer())
+
+        if (Program.bag.has_hammer())
         {
             walls[4].open_hidden_wall();
         }
       // move player
-      if (player.status)
+      if (Program.level == 1)
             {
+                if (Program.replay == true && Program.last_level != 2)
+                {
+                    Close();
+                    return;
+                }
                 player.Move();
             }
        else
             {
-                player.Move();
-                Program.end_game();
-                Thread.Sleep(5000);
                 Close();
                 return;
             }
@@ -164,9 +172,9 @@ namespace Fall2020_CSC403_Project {
                 }
             }
             // check collision with walls
-            if (HitAWall(player)) {
+        if (HitAWall(player)) {
             player.MoveBack();
-      }
+        }
 
         // check collision with enemies or items
         if (HitAChar(player, enemyPoisonPacket)) {
@@ -215,12 +223,10 @@ namespace Fall2020_CSC403_Project {
             if (picPlayer1.Location.X >= 1176)
             {
                 Program.change_level(2);
-                Close();
             }
             else if (picPlayer1.Location.X <= 0)
             {
                 Program.change_level(0);
-                Close();
             }
         }
 
@@ -229,11 +235,15 @@ namespace Fall2020_CSC403_Project {
         /// </summary>
         /// <returns></returns> the wall the player hit
         private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+        bool hitAWall = false;
+        for (int w = 0; w < walls.Length; w++) {
+            if (c.Collider.Intersects(walls[w].Collider)) {
+            hitAWall = true;
+                if (c.Collider.Intersects(walls[4].Collider)&& !Program.bag.has_hammer())
+                {
+                        odd_wall();
+                }
+            break;
         }
       }
       return hitAWall;
@@ -266,6 +276,18 @@ namespace Fall2020_CSC403_Project {
 
             frmBattle = FrmBattle.GetInstance(enemy, Program.bag.current_weapon);
             frmBattle.Show();
+
+        }
+        /// <summary>
+        /// starts the hidden wall screen
+        /// </summary>
+        private void odd_wall()
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+
+            wall4_nohammer = wall4_NoHammer.GetInstance();
+            wall4_nohammer.Show();
 
         }
 

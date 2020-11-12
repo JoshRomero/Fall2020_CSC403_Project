@@ -127,15 +127,13 @@ namespace Fall2020_CSC403_Project
 
 
             // move player
-            if (player.status)
+            if (Program.level == 2)
             {
                 player.Move();
             }
             else
             {
-                player.Move();
-                Program.end_game();
-                Thread.Sleep(5000);
+                
                 Close();
                 return;
             }
@@ -214,12 +212,10 @@ namespace Fall2020_CSC403_Project
             if (picPlayer2.Location.X >= 1176)
             {
                 Program.change_level(3);
-                Close();
             }
             else if (picPlayer2.Location.X <= 0)
             {
                 Program.change_level(1);
-                Close();
             }
         }
 

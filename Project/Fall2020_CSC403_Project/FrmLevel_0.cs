@@ -83,14 +83,12 @@ namespace Fall2020_CSC403_Project
           
             player.ResetWithPersistents(Program.persistent_health);
             // move player
-            if (player.status)
+            if (Program.level == 0)
             {
                 player.Move();
             }
             else
             {
-                Program.end_game();
-                Thread.Sleep(5000);
                 Close();
                 return;
             }
@@ -143,7 +141,6 @@ namespace Fall2020_CSC403_Project
             if (picPlayer0.Location.X >= 1176)
             {
                 Program.change_level(1);
-                Close();
             }
         }
 

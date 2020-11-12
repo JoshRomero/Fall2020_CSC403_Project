@@ -33,6 +33,7 @@
             this.btnworthy1 = new System.Windows.Forms.Button();
             this.pichammer = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.note_worthy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pichammer)).BeginInit();
             this.SuspendLayout();
@@ -90,12 +91,24 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Mjölnir has flown away.";
             // 
+            // note_worthy
+            // 
+            this.note_worthy.AutoSize = true;
+            this.note_worthy.BackColor = System.Drawing.Color.Transparent;
+            this.note_worthy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.note_worthy.Location = new System.Drawing.Point(538, 475);
+            this.note_worthy.Name = "note_worthy";
+            this.note_worthy.Size = new System.Drawing.Size(188, 17);
+            this.note_worthy.TabIndex = 6;
+            this.note_worthy.Text = "Must be level 4 to be Worthy";
+            // 
             // FrmNotWorthy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(822, 575);
+            this.Controls.Add(this.note_worthy);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pichammer);
             this.Controls.Add(this.btnworthy1);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Button btnworthy1;
         private System.Windows.Forms.PictureBox pichammer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label note_worthy;
     }
 }
