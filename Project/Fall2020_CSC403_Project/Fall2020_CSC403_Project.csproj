@@ -76,6 +76,12 @@
     <Compile Include="FrmLevel_1.Designer.cs">
       <DependentUpon>FrmLevel_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevel_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel_3.Designer.cs">
+      <DependentUpon>FrmLevel_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel_1.resx">
       <DependentUpon>FrmLevel_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel_3.resx">
+      <DependentUpon>FrmLevel_3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSave.resx">
       <DependentUpon>FrmSave.cs</DependentUpon>
