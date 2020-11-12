@@ -252,6 +252,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap goldenBidoof {
+            get {
+                object obj = ResourceManager.GetObject("goldenBidoof", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hammer {
             get {
                 object obj = ResourceManager.GetObject("hammer", resourceCulture);
@@ -265,6 +275,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap lightningplayer {
             get {
                 object obj = ResourceManager.GetObject("lightningplayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pepsi_man {
+            get {
+                object obj = ResourceManager.GetObject("pepsi_man", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
