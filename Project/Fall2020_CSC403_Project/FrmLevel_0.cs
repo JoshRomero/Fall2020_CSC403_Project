@@ -31,8 +31,8 @@ namespace Fall2020_CSC403_Project
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
 
             // set max health
-            bossKoolaid.MaxHealth = 60;
-            bossKoolaid.Health = 60;
+            bossKoolaid.MaxHealth = 120;
+            bossKoolaid.Health = 120;
 
             // setting the images for the background when hit
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
