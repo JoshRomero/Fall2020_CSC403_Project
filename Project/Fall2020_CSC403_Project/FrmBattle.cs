@@ -48,6 +48,7 @@ namespace Fall2020_CSC403_Project
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
 
+            UpdateXPBars();
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
             player.AttackEvent += EnemyDamage;
@@ -64,6 +65,7 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
+
 
             SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Play();
@@ -110,15 +112,44 @@ namespace Fall2020_CSC403_Project
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
+        private void UpdateXPBars()
+        {
+            int MaxXP = (Program.PN_CurrentLevel * 10);
+
+            float playerXP_Per = Program.GetExperiance() / (float)MaxXP;
+
+            const int MAX_XPBAR_WIDTH = 226;
+            XPamount.Width = (int)(MAX_XPBAR_WIDTH * playerXP_Per);
+
+            XPamount.Text = Program.GetExperiance().ToString();
+            PN_Current_Level.Text = Program.PN_CurrentLevel.ToString();
+            if (Program.GetExperiance() >= Program.PN_CurrentLevel * 10)
+            {
+                
+                if ( Program.PN_CurrentLevel <= 3)
+                {
+                    Program.reset_XP();
+                    Program.PN_CurrentLevel += 1;
+                    Program.strength += 1;
+                }
+                else
+                {
+                    Program.experiance = Program.PN_CurrentLevel * 10;
+                }
+           
+            }
+        }
+
+
         /// <summary>
         /// applies the damage to the enemy and player when the attack button is pressed
         /// </summary>
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-3);
+            player.OnAttack(-3, Program.strength);
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-2, Program.strength);
             }
             UpdateHealthBars();
             if (player.Health <= 0 || enemy.Health <= 0)
@@ -126,6 +157,8 @@ namespace Fall2020_CSC403_Project
                 if (enemy.Health <= 0)
                 {
                     enemy.death();
+                    Program.alterExperiance(5);
+                    UpdateXPBars();
                 }
                 else
                 {
@@ -183,19 +216,22 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         private void Stab_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-7);
+            player.OnAttack(-7, Program.strength);
             
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-2, Program.strength);
             }
 
             UpdateHealthBars();
+
             if (player.Health <= 0 || enemy.Health <= 0)
             {
                 if (enemy.Health <= 0)
                 {
                     enemy.death();
+                    Program.alterExperiance(5);
+                    UpdateXPBars();
                 }
                 else
                 {
@@ -213,11 +249,11 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         private void Shoot_Click(object sender, EventArgs e)
         {           
-            player.OnAttack(-10);
+            player.OnAttack(-10, Program.strength);
 
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-2, Program.strength);
             }
 
             UpdateHealthBars();
@@ -226,6 +262,8 @@ namespace Fall2020_CSC403_Project
                 if (enemy.Health <= 0)
                 {
                     enemy.death();
+                    Program.alterExperiance(enemy.MaxHealth/4);
+                    UpdateXPBars();
                 }
                 else
                 {
@@ -236,6 +274,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
+
         private static void Death()
         {
             death Death = new death();
@@ -255,6 +294,12 @@ namespace Fall2020_CSC403_Project
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnrun_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
         }
     } 
 }

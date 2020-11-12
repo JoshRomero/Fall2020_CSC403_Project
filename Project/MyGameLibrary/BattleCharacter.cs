@@ -10,17 +10,15 @@ namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
     public int Health { get; set; }
     public int MaxHealth { get;  set; }
-    private int strength;
 
     public event Action<int> AttackEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
       MaxHealth = 20;
-      strength = 2;
       Health = MaxHealth;
     }
 
-    public void OnAttack(int amount) {
+    public void OnAttack(int amount, int strength) {
       AttackEvent((int)(amount * strength));
     }
 
@@ -43,11 +41,6 @@ namespace Fall2020_CSC403_Project.code {
             }
 
     }
-        public void AlterStrenght(int amount)
-        {
-            strength = amount;
-
-        }
         public void ResetWithPersistents(int per_health)
         {
             Health = per_health;

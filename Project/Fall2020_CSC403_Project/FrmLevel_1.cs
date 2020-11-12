@@ -151,12 +151,10 @@ namespace Fall2020_CSC403_Project {
                 // changes to super peanut if they have hammer
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer1.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer1.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
@@ -164,12 +162,10 @@ namespace Fall2020_CSC403_Project {
             {
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer1.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer1.BackgroundImage = Properties.Resources.player;
                 }
             }

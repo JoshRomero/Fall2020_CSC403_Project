@@ -317,7 +317,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.picdragon);
             this.Controls.Add(this.picbow);
             this.Controls.Add(this.picbig_knife);
             this.Controls.Add(this.pictpotion1);
@@ -338,6 +337,7 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer1);
+            this.Controls.Add(this.picdragon);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

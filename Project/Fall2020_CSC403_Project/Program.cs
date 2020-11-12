@@ -17,13 +17,18 @@ namespace Fall2020_CSC403_Project {
         public static int persistent_health { get; private set; }
         public static bool traded { get; set; }
         public static bool swap_weapons;
-        private static int experiance;
+        public static int experiance;
+        public static int strength  { get; set; }
+        public static int PN_CurrentLevel { get; set; }
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
+/// <summary>
+/// The main entry point for the application.
+/// </summary>
+[STAThread]
     static void Main() {
+      strength = 2;
+      PN_CurrentLevel = 1;
+      experiance = 0;
       swap_weapons = false;
       traded = false;
       persistent_health = 20;
@@ -90,13 +95,25 @@ namespace Fall2020_CSC403_Project {
         {
             level = -1;
         }
+
         public static void updatePersistentHealth(int new_health)
         {
             persistent_health = new_health;
         }
+
         public static void alterExperiance(int XP)
         {
             experiance += XP;
+        }
+
+        public static int GetExperiance()
+        {
+            return experiance;
+        }
+
+        public static void reset_XP()
+        {
+            experiance = 0;
         }
     }
 }

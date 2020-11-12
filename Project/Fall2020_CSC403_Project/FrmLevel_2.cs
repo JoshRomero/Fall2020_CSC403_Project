@@ -149,12 +149,10 @@ namespace Fall2020_CSC403_Project
                 // changes peanut to superpeanut if they have thor's hammer and increases strenght
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer2.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer2.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
@@ -162,12 +160,10 @@ namespace Fall2020_CSC403_Project
             {
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer2.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer2.BackgroundImage = Properties.Resources.player;
                 }
             }

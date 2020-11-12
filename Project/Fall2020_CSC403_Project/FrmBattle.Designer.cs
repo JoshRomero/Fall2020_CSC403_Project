@@ -41,6 +41,10 @@ namespace Fall2020_CSC403_Project {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnpotion = new System.Windows.Forms.Button();
             this.num_potions = new System.Windows.Forms.Label();
+            this.btnrun = new System.Windows.Forms.Button();
+            this.XP_Maxcount = new System.Windows.Forms.Label();
+            this.XPamount = new System.Windows.Forms.Label();
+            this.PN_Current_Level = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
@@ -59,7 +63,7 @@ namespace Fall2020_CSC403_Project {
             // 
             // lblPlayerHealthFull
             // 
-            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
@@ -87,7 +91,7 @@ namespace Fall2020_CSC403_Project {
             // 
             // lblEnemyHealthFull
             // 
-            this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 60);
@@ -157,6 +161,48 @@ namespace Fall2020_CSC403_Project {
             this.num_potions.Text = "# potions";
             this.num_potions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnrun
+            // 
+            this.btnrun.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnrun.Location = new System.Drawing.Point(585, 433);
+            this.btnrun.Name = "btnrun";
+            this.btnrun.Size = new System.Drawing.Size(104, 43);
+            this.btnrun.TabIndex = 9;
+            this.btnrun.Text = "Run Away";
+            this.btnrun.UseVisualStyleBackColor = true;
+            this.btnrun.Click += new System.EventHandler(this.btnrun_Click);
+            // 
+            // XP_Maxcount
+            // 
+            this.XP_Maxcount.BackColor = System.Drawing.Color.Black;
+            this.XP_Maxcount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.XP_Maxcount.Location = new System.Drawing.Point(70, 20);
+            this.XP_Maxcount.Name = "XP_Maxcount";
+            this.XP_Maxcount.Size = new System.Drawing.Size(229, 23);
+            this.XP_Maxcount.TabIndex = 10;
+            // 
+            // XPamount
+            // 
+            this.XPamount.BackColor = System.Drawing.Color.Blue;
+            this.XPamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XPamount.ForeColor = System.Drawing.Color.White;
+            this.XPamount.Location = new System.Drawing.Point(70, 20);
+            this.XPamount.Name = "XPamount";
+            this.XPamount.Size = new System.Drawing.Size(229, 23);
+            this.XPamount.TabIndex = 11;
+            // 
+            // PN_Current_Level
+            // 
+            this.PN_Current_Level.AutoSize = true;
+            this.PN_Current_Level.BackColor = System.Drawing.Color.Transparent;
+            this.PN_Current_Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.PN_Current_Level.Location = new System.Drawing.Point(305, 20);
+            this.PN_Current_Level.Name = "PN_Current_Level";
+            this.PN_Current_Level.Size = new System.Drawing.Size(163, 24);
+            this.PN_Current_Level.TabIndex = 12;
+            this.PN_Current_Level.Text = "PN_Current_Level";
+            this.PN_Current_Level.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,15 +210,19 @@ namespace Fall2020_CSC403_Project {
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 575);
+            this.Controls.Add(this.PN_Current_Level);
+            this.Controls.Add(this.btnrun);
             this.Controls.Add(this.num_potions);
             this.Controls.Add(this.btnpotion);
-            this.Controls.Add(this.lblEnemyHealthFull);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.lblEnemyHealthFull);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.XPamount);
+            this.Controls.Add(this.XP_Maxcount);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -182,6 +232,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -204,10 +255,37 @@ namespace Fall2020_CSC403_Project {
             this.btnpotion = new System.Windows.Forms.Button();
             this.num_potions = new System.Windows.Forms.Label();
             this.Stab = new System.Windows.Forms.Button();
+            this.btnrun = new System.Windows.Forms.Button(); 
+            this.XP_Maxcount = new System.Windows.Forms.Label();
+            this.XPamount = new System.Windows.Forms.Label();
+            this.PN_Current_Level = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             this.SuspendLayout();
+            // 
+            // XPMaxCount_Display
+            // 
+            this.PN_Current_Level.AutoSize = true;
+            this.PN_Current_Level.BackColor = System.Drawing.Color.Transparent;
+            this.PN_Current_Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.PN_Current_Level.Location = new System.Drawing.Point(305, 20);
+            this.PN_Current_Level.Name = "XPMaxCount_Display";
+            this.PN_Current_Level.Size = new System.Drawing.Size(192, 24);
+            this.PN_Current_Level.TabIndex = 12;
+            this.PN_Current_Level.Text = "XPMaxCount_Display";
+            this.PN_Current_Level.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnrun
+            // 
+            this.btnrun.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnrun.Location = new System.Drawing.Point(585, 433);
+            this.btnrun.Name = "btnrun";
+            this.btnrun.Size = new System.Drawing.Size(104, 43);
+            this.btnrun.TabIndex = 9;
+            this.btnrun.Text = "Run Away";
+            this.btnrun.UseVisualStyleBackColor = true;
+            this.btnrun.Click += new System.EventHandler(this.btnrun_Click);
             // 
             // btnAttack
             // 
@@ -332,6 +410,25 @@ namespace Fall2020_CSC403_Project {
             this.Stab.UseVisualStyleBackColor = true;
             this.Stab.Click += new System.EventHandler(this.Stab_Click);
             // 
+            // XPcount
+            // 
+            this.XP_Maxcount.BackColor = System.Drawing.Color.Black;
+            this.XP_Maxcount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.XP_Maxcount.Location = new System.Drawing.Point(70, 20);
+            this.XP_Maxcount.Name = "XPcount";
+            this.XP_Maxcount.Size = new System.Drawing.Size(229, 23);
+            this.XP_Maxcount.TabIndex = 10;
+            // 
+            // XPamount
+            // 
+            this.XPamount.BackColor = System.Drawing.Color.Blue;
+            this.XPamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XPamount.ForeColor = System.Drawing.Color.White;
+            this.XPamount.Location = new System.Drawing.Point(70, 20);
+            this.XPamount.Name = "XPamount";
+            this.XPamount.Size = new System.Drawing.Size(229, 23);
+            this.XPamount.TabIndex = 11;
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,6 +437,7 @@ namespace Fall2020_CSC403_Project {
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 575);
             this.Controls.Add(this.Stab);
+            this.Controls.Add(this.btnrun);
             this.Controls.Add(this.num_potions);
             this.Controls.Add(this.btnpotion);
             this.Controls.Add(this.lblEnemyHealthFull);
@@ -354,6 +452,9 @@ namespace Fall2020_CSC403_Project {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+            this.Controls.Add(this.XPamount);
+            this.Controls.Add(this.XP_Maxcount);
+            this.Controls.Add(this.PN_Current_Level);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
@@ -379,10 +480,37 @@ namespace Fall2020_CSC403_Project {
             this.btnpotion = new System.Windows.Forms.Button();
             this.num_potions = new System.Windows.Forms.Label();
             this.Stab = new System.Windows.Forms.Button();
+            this.btnrun = new System.Windows.Forms.Button();
+            this.XP_Maxcount = new System.Windows.Forms.Label();
+            this.XPamount = new System.Windows.Forms.Label();
+            this.PN_Current_Level = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             this.SuspendLayout();
+            // 
+            // XPMaxCount_Display
+            // 
+            this.PN_Current_Level.AutoSize = true;
+            this.PN_Current_Level.BackColor = System.Drawing.Color.Transparent;
+            this.PN_Current_Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.PN_Current_Level.Location = new System.Drawing.Point(305, 20);
+            this.PN_Current_Level.Name = "XPMaxCount_Display";
+            this.PN_Current_Level.Size = new System.Drawing.Size(192, 24);
+            this.PN_Current_Level.TabIndex = 12;
+            this.PN_Current_Level.Text = "XPMaxCount_Display";
+            this.PN_Current_Level.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnrun
+            // 
+            this.btnrun.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnrun.Location = new System.Drawing.Point(585, 433);
+            this.btnrun.Name = "btnrun";
+            this.btnrun.Size = new System.Drawing.Size(104, 43);
+            this.btnrun.TabIndex = 9;
+            this.btnrun.Text = "Run Away";
+            this.btnrun.UseVisualStyleBackColor = true;
+            this.btnrun.Click += new System.EventHandler(this.btnrun_Click);
             // 
             // btnAttack
             // 
@@ -507,6 +635,25 @@ namespace Fall2020_CSC403_Project {
             this.Stab.UseVisualStyleBackColor = true;
             this.Stab.Click += new System.EventHandler(this.Shoot_Click);
             // 
+            // XPcount
+            // 
+            this.XP_Maxcount.BackColor = System.Drawing.Color.Black;
+            this.XP_Maxcount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.XP_Maxcount.Location = new System.Drawing.Point(70, 20);
+            this.XP_Maxcount.Name = "XPcount";
+            this.XP_Maxcount.Size = new System.Drawing.Size(229, 23);
+            this.XP_Maxcount.TabIndex = 10;
+            // 
+            // XPamount
+            // 
+            this.XPamount.BackColor = System.Drawing.Color.Blue;
+            this.XPamount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XPamount.ForeColor = System.Drawing.Color.White;
+            this.XPamount.Location = new System.Drawing.Point(70, 20);
+            this.XPamount.Name = "XPamount";
+            this.XPamount.Size = new System.Drawing.Size(229, 23);
+            this.XPamount.TabIndex = 11;
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,6 +662,7 @@ namespace Fall2020_CSC403_Project {
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 575);
             this.Controls.Add(this.Stab);
+            this.Controls.Add(this.btnrun);
             this.Controls.Add(this.num_potions);
             this.Controls.Add(this.btnpotion);
             this.Controls.Add(this.lblEnemyHealthFull);
@@ -529,6 +677,9 @@ namespace Fall2020_CSC403_Project {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+            this.Controls.Add(this.XPamount);
+            this.Controls.Add(this.XP_Maxcount);
+            this.Controls.Add(this.PN_Current_Level);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
@@ -552,6 +703,10 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.Button btnpotion;
         private System.Windows.Forms.Label num_potions;
         private System.Windows.Forms.Button Stab;
+        private System.Windows.Forms.Button btnrun;
+        private System.Windows.Forms.Label XP_Maxcount;
+        private System.Windows.Forms.Label XPamount;
+        private System.Windows.Forms.Label PN_Current_Level;
     }
 
 }

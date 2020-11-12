@@ -55,6 +55,7 @@ namespace Fall2020_CSC403_Project
         }
 
 
+        
         private Vector2 CreatePosition(PictureBox pic)
         {
             return new Vector2(pic.Location.X, pic.Location.Y);
@@ -100,12 +101,10 @@ namespace Fall2020_CSC403_Project
                 // if player have thor's hammer they are now superpeanut
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer0.BackgroundImage = Properties.Resources.superbabyPeanut;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer0.BackgroundImage = Properties.Resources.babyPeanut;
                 }
             }
@@ -113,12 +112,10 @@ namespace Fall2020_CSC403_Project
             {
                 if (Program.bag.has_hammer())
                 {
-                    player.AlterStrenght(3);
                     picPlayer0.BackgroundImage = Properties.Resources.superplayer;
                 }
                 else
                 {
-                    player.AlterStrenght(2);
                     picPlayer0.BackgroundImage = Properties.Resources.player;
                 }
             }
