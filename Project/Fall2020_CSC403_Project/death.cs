@@ -14,9 +14,18 @@ namespace Fall2020_CSC403_Project
     public partial class death : Form
     {
         public static death instance = null;
-        public death()
+        private death()
         {
             InitializeComponent();
+        }
+
+        public static death GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new death();
+            }
+            return instance;
         }
 
         public void death_Load(object sender, EventArgs e)
@@ -26,11 +35,13 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            instance = null;
             Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            instance = null;
             FrmLevel_1 frmLevel_1 = new FrmLevel_1();
             frmLevel_1.Show();
         }

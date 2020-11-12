@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private death frmDeath;
 
         /// <summary>
         /// Creates the initial screen for battle 
@@ -276,10 +277,10 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private static void Death()
+        private void Death()
         {
-            death Death = new death();
-            Death.Show();
+            frmDeath = death.GetInstance();
+            frmDeath.Show();
         }
 
         private static void LevelUp()
