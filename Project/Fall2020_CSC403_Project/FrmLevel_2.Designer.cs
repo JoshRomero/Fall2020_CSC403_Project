@@ -406,9 +406,9 @@
             this.picWall21.BackColor = System.Drawing.Color.Transparent;
             this.picWall21.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall21.Location = new System.Drawing.Point(1092, 277);
+            this.picWall21.Location = new System.Drawing.Point(1092, 325);
             this.picWall21.Name = "picWall21";
-            this.picWall21.Size = new System.Drawing.Size(79, 382);
+            this.picWall21.Size = new System.Drawing.Size(79, 325);
             this.picWall21.TabIndex = 8;
             this.picWall21.TabStop = false;
             // 
