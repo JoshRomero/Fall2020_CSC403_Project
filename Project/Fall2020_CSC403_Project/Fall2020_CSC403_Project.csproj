@@ -144,6 +144,9 @@
     <EmbeddedResource Include="Frm_Pick_Up1.resx">
       <DependentUpon>Frm_Pick_Up1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Leveled_up.resx">
+      <DependentUpon>Leveled_up.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
