@@ -90,7 +90,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             if (item.name == "Mjölnir")
             {
-                if (Program.PN_CurrentLevel >= 3)
+                if (Program.PN_CurrentLevel >= 4)
                 {
                     Worthy();
                 }
