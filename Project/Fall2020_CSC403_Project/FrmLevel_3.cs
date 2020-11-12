@@ -170,14 +170,9 @@ namespace Fall2020_CSC403_Project
             piccookie3.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
 
             // if the player passes the boss and exits the screen
-            if (picPlayer3.Location.X >= 1176)
+          if (picPlayer3.Location.X <= 0)
             {
-                Program.change_level(3);
-                Close();
-            }
-            else if (picPlayer3.Location.X <= 0)
-            {
-                Program.change_level(1);
+                Program.change_level(2);
                 Close();
             }
         }

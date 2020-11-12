@@ -21,7 +21,15 @@ namespace Fall2020_CSC403_Project
         private bool traded;
         public FrmLevel_2()
         {
-            InitializeComponent();
+
+            if (Program.last_level == 3)
+            {
+                InitializeComponent1();
+            }
+            else
+            {
+                InitializeComponent();
+            }
         }
 
 

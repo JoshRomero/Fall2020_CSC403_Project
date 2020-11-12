@@ -203,7 +203,6 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.ClientSize = new System.Drawing.Size(1014, 461);
-            this.Controls.Add(this.picPlayer3);
             this.Controls.Add(this.piccookie3);
             this.Controls.Add(this.picbat3);
             this.Controls.Add(this.picWall23);
@@ -214,6 +213,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.picWall26);
             this.Controls.Add(this.picWall24);
             this.Controls.Add(this.pictpotion2);
+            this.Controls.Add(this.picPlayer3);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmLevel_3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -43,7 +43,6 @@
             this.picPlayer0 = new System.Windows.Forms.PictureBox();
             this.picdarkwall1 = new System.Windows.Forms.PictureBox();
             this.picdarkwall0 = new System.Windows.Forms.PictureBox();
-            this.XPcount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picdarkwall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picgirl)).BeginInit();
@@ -195,24 +194,12 @@
             this.picdarkwall0.TabIndex = 0;
             this.picdarkwall0.TabStop = false;
             // 
-            // XPcount
-            // 
-            this.XPcount.AutoSize = true;
-            this.XPcount.BackColor = System.Drawing.Color.Transparent;
-            this.XPcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.XPcount.Location = new System.Drawing.Point(1009, 14);
-            this.XPcount.Name = "XPcount";
-            this.XPcount.Size = new System.Drawing.Size(83, 24);
-            this.XPcount.TabIndex = 10;
-            this.XPcount.Text = "XPcount";
-            // 
             // FrmLevel_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.XPcount);
             this.Controls.Add(this.picdarkwall4);
             this.Controls.Add(this.picdarkwall5);
             this.Controls.Add(this.label1);
@@ -258,6 +245,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picdarkwall5;
         private System.Windows.Forms.PictureBox picdarkwall4;
-        private System.Windows.Forms.Label XPcount;
     }
 }

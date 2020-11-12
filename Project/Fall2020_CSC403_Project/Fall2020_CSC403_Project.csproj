@@ -106,6 +106,12 @@
     <Compile Include="Frm_Pick_Up1.Designer.cs">
       <DependentUpon>Frm_Pick_Up1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leveled_up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leveled_up.Designer.cs">
+      <DependentUpon>Leveled_up.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="death.resx">
