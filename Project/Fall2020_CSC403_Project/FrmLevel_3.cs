@@ -10,8 +10,8 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
         private Item potion;
-        private Enemy cookieMonster;
-        private Enemy enemyBatie;
+        private Enemy pepsiMan;
+        private Enemy goldenBidoof;
         private Character[] walls;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -32,15 +32,15 @@ namespace Fall2020_CSC403_Project
             // the position of the onject 
             player = new Player(CreatePosition(picPlayer3), CreateCollider(picPlayer3, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
-            cookieMonster = new Enemy(CreatePosition(piccookie3), CreateCollider(piccookie3, PADDING));
-            enemyBatie = new Enemy(CreatePosition(picbat3), CreateCollider(picbat3, PADDING));
+            pepsiMan = new Enemy(CreatePosition(picPepsi), CreateCollider(picPepsi, PADDING));
+            goldenBidoof = new Enemy(CreatePosition(picBidoof), CreateCollider(picBidoof, PADDING));
             hammer = new Item(CreatePosition(pichammer), CreateCollider(pichammer, PADDING));
 
             // adjust enemies health
-            enemyBatie.MaxHealth = 25;
-            cookieMonster.MaxHealth = 30;
-            enemyBatie.Health = 25;
-            cookieMonster.Health = 30;
+            goldenBidoof.MaxHealth = 25;
+            pepsiMan.MaxHealth = 30;
+            goldenBidoof.Health = 25;
+            pepsiMan.Health = 30;
 
             // name of the items
             potion.name = "Healing potion";
@@ -48,14 +48,14 @@ namespace Fall2020_CSC403_Project
 
             // setting the images for the background when hit
             potion.Img = pictpotion2.BackgroundImage;
-            cookieMonster.Img = piccookie3.BackgroundImage;
-            enemyBatie.Img = picbat3.BackgroundImage;
+            pepsiMan.Img = picPepsi.BackgroundImage;
+            goldenBidoof.Img = picBidoof.BackgroundImage;
             hammer.Img = pichammer.BackgroundImage;
 
             // adding the background color when hit
             potion.Color = Color.DeepPink;
-            cookieMonster.Color = Color.Blue;
-            enemyBatie.Color = Color.DarkSlateGray;
+            pepsiMan.Color = Color.Blue;
+            goldenBidoof.Color = Color.DarkSlateGray;
             hammer.Color = Color.DarkBlue;
 
             walls = new Character[NUM_WALLS];
@@ -155,19 +155,19 @@ namespace Fall2020_CSC403_Project
                 Pick_Up(hammer);
             }
             // check collision with enemies
-            if (HitAChar(player, enemyBatie))
+            if (HitAChar(player, goldenBidoof))
             {
-                Fight(enemyBatie);
+                Fight(goldenBidoof);
             }
-            else if (HitAChar(player, cookieMonster))
+            else if (HitAChar(player, pepsiMan))
             {
-                Fight(cookieMonster);
+                Fight(pepsiMan);
             }
  
             // update player's picture box
             picPlayer3.Location = new Point((int)player.Position.x, (int)player.Position.y);
-            picbat3.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
-            piccookie3.Location = new Point((int)cookieMonster.Position.x, (int)cookieMonster.Position.y);
+            picBidoof.Location = new Point((int)goldenBidoof.Position.x, (int)goldenBidoof.Position.y);
+            picPepsi.Location = new Point((int)pepsiMan.Position.x, (int)pepsiMan.Position.y);
 
             // if the player passes the boss and exits the screen
           if (picPlayer3.Location.X <= 0)

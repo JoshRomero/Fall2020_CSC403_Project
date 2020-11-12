@@ -218,6 +218,8 @@
     <None Include="data\babyPeanut.png" />
     <None Include="data\died.png" />
     <None Include="data\lightningplayer.png" />
+    <None Include="data\goldenBidoof.png" />
+    <None Include="data\pepsi_man.png" />
     <Content Include="data\potion.jpg" />
     <Content Include="data\potion2.png" />
     <None Include="data\tpotion.png" />
