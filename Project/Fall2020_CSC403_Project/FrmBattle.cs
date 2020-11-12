@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Media;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -131,6 +132,7 @@ namespace Fall2020_CSC403_Project
                     Program.reset_XP();
                     Program.PN_CurrentLevel += 1;
                     Program.strength += 1;
+                    LevelUp();
                 }
                 else
                 {
@@ -139,7 +141,6 @@ namespace Fall2020_CSC403_Project
            
             }
         }
-
 
         /// <summary>
         /// applies the damage to the enemy and player when the attack button is pressed
@@ -279,6 +280,14 @@ namespace Fall2020_CSC403_Project
         {
             death Death = new death();
             Death.Show();
+        }
+
+        private static void LevelUp()
+        {
+            Leveled_up LevelUp = new Leveled_up();
+            LevelUp.Show();
+            Thread.Sleep(2000);
+            LevelUp.Close();
         }
 
         /// <summary>
