@@ -77,12 +77,21 @@ namespace Fall2020_CSC403_Project {
                             last_level2 = level;
                         }
                         break;
+                    case 3:
+                        Application.Run(new FrmLevel_3());
+                        if (last_level2 == level)
+                        {
+                            exit = true;
+                        }
+                        else
+                        {
+                            last_level2 = level;
+                        }
+                        break;
                     case -1:
                         exit = true;
                         break;
-                }
-
-                
+                }                
             }
         }
         public static void change_level(int next_level)
