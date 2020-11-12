@@ -139,12 +139,6 @@ namespace Fall2020_CSC403_Project {
                 return;
             }
 
-            if (Program.swap_weapons)
-            {
-                knife.remove_item();
-
-                picbig_knife.Location = new Point((int)knife.Position.x, (int)knife.Position.y);
-            }
             // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
             if (player.Health <= (player.MaxHealth * .2))
             {

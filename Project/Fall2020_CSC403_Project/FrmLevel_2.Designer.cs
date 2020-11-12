@@ -277,10 +277,10 @@
             this.Controls.Add(this.picWall13);
             this.Controls.Add(this.picWall16);
             this.Controls.Add(this.picWall14);
-            this.Controls.Add(this.picPlayer2);
             this.Controls.Add(this.picbat);
             this.Controls.Add(this.piccookie);
             this.Controls.Add(this.picbow);
+            this.Controls.Add(this.picPlayer2);
             this.Name = "FrmLevel_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";

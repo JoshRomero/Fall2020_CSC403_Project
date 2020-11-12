@@ -207,9 +207,9 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picdarkwall3);
             this.Controls.Add(this.picdarkwall2);
-            this.Controls.Add(this.picPlayer0);
             this.Controls.Add(this.picdarkwall1);
             this.Controls.Add(this.picdarkwall0);
+            this.Controls.Add(this.picPlayer0);
             this.Name = "FrmLevel_0";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
