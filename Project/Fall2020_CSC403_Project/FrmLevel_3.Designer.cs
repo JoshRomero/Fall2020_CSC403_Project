@@ -142,7 +142,7 @@ namespace Fall2020_CSC403_Project
             this.picbat.BackColor = System.Drawing.Color.Transparent;
             this.picbat.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bat;
             this.picbat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picbat.Location = new System.Drawing.Point(357, 203);
+            this.picbat.Location = new System.Drawing.Point(363, 203);
             this.picbat.Margin = new System.Windows.Forms.Padding(4);
             this.picbat.Name = "picbat";
             this.picbat.Size = new System.Drawing.Size(171, 148);
@@ -203,7 +203,11 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.picWall15);
             this.Controls.Add(this.pictpotion2);
             this.Name = "FrmLevel_3";
-            this.Text = "FrmLevel_3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Explore";
+            this.Load += new System.EventHandler(this.FrmLevel_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

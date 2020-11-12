@@ -91,9 +91,7 @@ namespace Fall2020_CSC403_Project {
                     case -1:
                         exit = true;
                         break;
-                }
-
-                
+                }                
             }
         }
         public static void change_level(int next_level)

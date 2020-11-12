@@ -26,7 +26,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 9;
+            const int NUM_WALLS = 5;
 
 
             // the position of the onject 
@@ -59,10 +59,10 @@ namespace Fall2020_CSC403_Project
             hammer.Color = Color.DarkBlue;
 
             walls = new Character[NUM_WALLS];
-            for (int w = 13; w < NUM_WALLS + 13; w++)
+            for (int w = 22; w < NUM_WALLS + 13; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w - 13] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                walls[w - 22] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
             Game.player = player;
