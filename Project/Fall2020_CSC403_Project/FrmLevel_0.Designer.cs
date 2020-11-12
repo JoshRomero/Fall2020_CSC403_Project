@@ -89,9 +89,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(33, 302);
+            this.label1.Location = new System.Drawing.Point(44, 372);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.Size = new System.Drawing.Size(106, 22);
             this.label1.TabIndex = 7;
             this.label1.Text = "Help me !!!!!";
             // 
@@ -100,9 +101,10 @@
             this.picdarkwall4.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall4.Location = new System.Drawing.Point(-5, 447);
+            this.picdarkwall4.Location = new System.Drawing.Point(-7, 550);
+            this.picdarkwall4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall4.Name = "picdarkwall4";
-            this.picdarkwall4.Size = new System.Drawing.Size(344, 267);
+            this.picdarkwall4.Size = new System.Drawing.Size(484, 329);
             this.picdarkwall4.TabIndex = 9;
             this.picdarkwall4.TabStop = false;
             // 
@@ -111,9 +113,10 @@
             this.picdarkwall5.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall5.Location = new System.Drawing.Point(-5, -1);
+            this.picdarkwall5.Location = new System.Drawing.Point(-7, -1);
+            this.picdarkwall5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall5.Name = "picdarkwall5";
-            this.picdarkwall5.Size = new System.Drawing.Size(344, 229);
+            this.picdarkwall5.Size = new System.Drawing.Size(484, 282);
             this.picdarkwall5.TabIndex = 8;
             this.picdarkwall5.TabStop = false;
             // 
@@ -122,9 +125,10 @@
             this.picgirl.BackColor = System.Drawing.Color.Transparent;
             this.picgirl.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.girl1;
             this.picgirl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picgirl.Location = new System.Drawing.Point(69, 332);
+            this.picgirl.Location = new System.Drawing.Point(92, 409);
+            this.picgirl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picgirl.Name = "picgirl";
-            this.picgirl.Size = new System.Drawing.Size(44, 75);
+            this.picgirl.Size = new System.Drawing.Size(85, 134);
             this.picgirl.TabIndex = 6;
             this.picgirl.TabStop = false;
             // 
@@ -133,9 +137,10 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(146, 247);
+            this.picBossKoolAid.Location = new System.Drawing.Point(195, 304);
+            this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
+            this.picBossKoolAid.Size = new System.Drawing.Size(257, 239);
             this.picBossKoolAid.TabIndex = 5;
             this.picBossKoolAid.TabStop = false;
             // 
@@ -144,9 +149,10 @@
             this.picdarkwall3.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall3.Location = new System.Drawing.Point(354, 12);
+            this.picdarkwall3.Location = new System.Drawing.Point(472, -1);
+            this.picdarkwall3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall3.Name = "picdarkwall3";
-            this.picdarkwall3.Size = new System.Drawing.Size(254, 263);
+            this.picdarkwall3.Size = new System.Drawing.Size(339, 340);
             this.picdarkwall3.TabIndex = 4;
             this.picdarkwall3.TabStop = false;
             // 
@@ -155,9 +161,10 @@
             this.picdarkwall2.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall2.Location = new System.Drawing.Point(354, 393);
+            this.picdarkwall2.Location = new System.Drawing.Point(472, 484);
+            this.picdarkwall2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall2.Name = "picdarkwall2";
-            this.picdarkwall2.Size = new System.Drawing.Size(254, 321);
+            this.picdarkwall2.Size = new System.Drawing.Size(339, 395);
             this.picdarkwall2.TabIndex = 3;
             this.picdarkwall2.TabStop = false;
             // 
@@ -166,9 +173,10 @@
             this.picPlayer0.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlayer0.Location = new System.Drawing.Point(1043, 281);
+            this.picPlayer0.Location = new System.Drawing.Point(1391, 346);
+            this.picPlayer0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picPlayer0.Name = "picPlayer0";
-            this.picPlayer0.Size = new System.Drawing.Size(54, 106);
+            this.picPlayer0.Size = new System.Drawing.Size(72, 130);
             this.picPlayer0.TabIndex = 2;
             this.picPlayer0.TabStop = false;
             // 
@@ -177,9 +185,10 @@
             this.picdarkwall1.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall1.Location = new System.Drawing.Point(614, 196);
+            this.picdarkwall1.Location = new System.Drawing.Point(811, 241);
+            this.picdarkwall1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall1.Name = "picdarkwall1";
-            this.picdarkwall1.Size = new System.Drawing.Size(483, 79);
+            this.picdarkwall1.Size = new System.Drawing.Size(771, 97);
             this.picdarkwall1.TabIndex = 1;
             this.picdarkwall1.TabStop = false;
             // 
@@ -188,28 +197,30 @@
             this.picdarkwall0.BackColor = System.Drawing.Color.Transparent;
             this.picdarkwall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.darkwall;
             this.picdarkwall0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picdarkwall0.Location = new System.Drawing.Point(614, 393);
+            this.picdarkwall0.Location = new System.Drawing.Point(811, 484);
+            this.picdarkwall0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picdarkwall0.Name = "picdarkwall0";
-            this.picdarkwall0.Size = new System.Drawing.Size(483, 91);
+            this.picdarkwall0.Size = new System.Drawing.Size(757, 112);
             this.picdarkwall0.TabIndex = 0;
             this.picdarkwall0.TabStop = false;
             // 
             // FrmLevel_0
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.picdarkwall4);
-            this.Controls.Add(this.picdarkwall5);
+            this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picgirl);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picdarkwall3);
             this.Controls.Add(this.picdarkwall2);
-            this.Controls.Add(this.picPlayer0);
             this.Controls.Add(this.picdarkwall1);
             this.Controls.Add(this.picdarkwall0);
+            this.Controls.Add(this.picdarkwall4);
+            this.Controls.Add(this.picdarkwall5);
+            this.Controls.Add(this.picPlayer0);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmLevel_0";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
