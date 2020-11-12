@@ -125,7 +125,7 @@ namespace Fall2020_CSC403_Project
             PN_Current_Level.Text = Program.PN_CurrentLevel.ToString();
             if (Program.GetExperiance() >= Program.PN_CurrentLevel * 10)
             {
-                
+                Program.updatePersistentHealth(player.MaxHealth);
                 if ( Program.PN_CurrentLevel <= 3)
                 {
                     Program.reset_XP();
