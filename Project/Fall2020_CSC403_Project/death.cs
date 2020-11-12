@@ -23,5 +23,16 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmLevel_1 frmLevel_1 = new FrmLevel_1();
+            frmLevel_1.Show();
+        }
     }
 }

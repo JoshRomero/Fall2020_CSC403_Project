@@ -138,5 +138,10 @@ namespace Fall2020_CSC403_Project
                 e.Cancel = true;
             }
         }
+
+        private void Frm_Pick_Up1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
