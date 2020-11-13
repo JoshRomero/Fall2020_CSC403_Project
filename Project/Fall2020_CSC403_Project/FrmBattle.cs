@@ -114,6 +114,7 @@ namespace Fall2020_CSC403_Project
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
+        //update the XP bars after the battle
         private void UpdateXPBars()
         {
             int MaxXP = (Program.PN_CurrentLevel * 10);
