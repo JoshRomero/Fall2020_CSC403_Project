@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
@@ -91,6 +92,10 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                if(Program.level == -1)
+                {
+                    Thread.Sleep(3000);
+                }
                 Close();
                 return;
             }
@@ -189,7 +194,7 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmSave = FrmSave.GetInstance(enemy);
             frmSave.Show();
-            player.status = false;
+            Program.change_level(-1);
 
         }
 
