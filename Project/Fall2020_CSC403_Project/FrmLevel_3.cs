@@ -29,7 +29,7 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 5;
 
 
-            // the position of the onject 
+            // the position of the object 
             player = new Player(CreatePosition(picPlayer3), CreateCollider(picPlayer3, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
             pepsiMan = new Enemy(CreatePosition(picPepsi), CreateCollider(picPepsi, PADDING));
@@ -58,6 +58,8 @@ namespace Fall2020_CSC403_Project
             goldenBidoof.Color = Color.DarkSlateGray;
             hammer.Color = Color.DarkBlue;
 
+
+            // creates all the walls and puts them at there correct location
             walls = new Character[NUM_WALLS];
             for (int w = 22; w < NUM_WALLS + 22; w++)
             {
@@ -92,17 +94,21 @@ namespace Fall2020_CSC403_Project
             lblInGameTime1.Text = "Time: " + time.ToString();
         }
 
+        /// <summary>
+        /// handles the players interations with the level
+        /// </summary>
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             player.ResetWithPersistents(Program.persistent_health);
 
+            //if player picks up hammer and puts it in his bag then remove it from the screen
             if (Program.bag.has_hammer())
             {
                 hammer.remove_item();
                 pichammer.Location = new Point((int)hammer.Position.x, (int)hammer.Position.y);
             }
 
-            // move player
+            // checks and makes sure player is on this level and move player
             if (Program.level == 3)
             {
                 player.Move();
@@ -216,7 +222,7 @@ namespace Fall2020_CSC403_Project
             frm_Pick_Up = Frm_Pick_Up1.GetInstance(item);
             item.remove_item();
 
-
+            // if item is not a weapon then check for type of item then remove it from the screen
             if (!item.is_weapon)
             {
                 if (item.name == "Healing potion")
@@ -233,7 +239,7 @@ namespace Fall2020_CSC403_Project
             frm_Pick_Up.Show();
         }
 
-
+        // looks for keyboard input
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
 

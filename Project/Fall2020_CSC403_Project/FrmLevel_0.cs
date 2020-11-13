@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
 
@@ -43,6 +42,7 @@ namespace Fall2020_CSC403_Project
             bossKoolaid.Color = Color.Red;
             girl.Color = Color.HotPink;
 
+            // puts the walls in there correct postions on the screen
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
@@ -78,11 +78,13 @@ namespace Fall2020_CSC403_Project
             lblInGameTime1.Text = "Time: " + time.ToString();
         }
 
+        // handles the players interactions with the game
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
           
+            // updates the players health
             player.ResetWithPersistents(Program.persistent_health);
-            // move player
+            // checks and makes sure the player is on the correct level then moves the player
             if (Program.level == 0)
             {
                 player.Move();
@@ -96,7 +98,7 @@ namespace Fall2020_CSC403_Project
             // if player is 20% of lower they are now baby peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
-                // if player have thor's hammer they are now superpeanut
+                // if player has thor's hammer they are now superbabypeanut
                 if (Program.bag.has_hammer())
                 {
                     picPlayer0.BackgroundImage = Properties.Resources.superbabyPeanut;
@@ -108,6 +110,7 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                // if player has thor's hammer they are now superpeanut
                 if (Program.bag.has_hammer())
                 {
                     picPlayer0.BackgroundImage = Properties.Resources.superplayer;
@@ -190,6 +193,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        // handle the keyboard interaction
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

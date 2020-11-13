@@ -2,8 +2,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading;
-using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel_1 : Form
@@ -25,6 +23,8 @@ namespace Fall2020_CSC403_Project {
     private wall4_NoHammer wall4_nohammer;
 
     public FrmLevel_1() {
+          // checks last level and replay to make sure the player did not die and wants to playe again
+          // if last level == 2 and not replay will produce a different initializecomponent
           if(Program.last_level == 2 && !Program.replay)
             {
                 InitializeComponent();
@@ -83,7 +83,7 @@ namespace Fall2020_CSC403_Project {
       knife.Color = Color.DarkRed;
       bow.Color = Color.DarkGreen;
 
-      
+      // handles the creation of the walls
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -113,9 +113,14 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
+    /// <summary>
+    ///  handles the players interaction with the game
+    /// </summary>
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       player.ResetWithPersistents(Program.persistent_health);
 
+        // if players has the knife it will not put it to the screen
+        // if player does not have the knife it will generate it
         if(Program.bag.current_weapon == "big knife")
             {
                 knife.remove_item();
@@ -150,7 +155,7 @@ namespace Fall2020_CSC403_Project {
             // if Mr. peanut's health is at 20% or less he will be baby Mr. peanut
             if (player.Health <= (player.MaxHealth * .2))
             {
-                // changes to super peanut if they have hammer
+                // changes to super babypeanut if they have hammer
                 if (Program.bag.has_hammer())
                 {
                     picPlayer1.BackgroundImage = Properties.Resources.superbabyPeanut;
@@ -162,6 +167,7 @@ namespace Fall2020_CSC403_Project {
             }
             else
             {
+                // changes to super peanut if they have hammer
                 if (Program.bag.has_hammer())
                 {
                     picPlayer1.BackgroundImage = Properties.Resources.superplayer;
@@ -171,7 +177,8 @@ namespace Fall2020_CSC403_Project {
                     picPlayer1.BackgroundImage = Properties.Resources.player;
                 }
             }
-            // check collision with walls
+
+        // check collision with walls
         if (HitAWall(player)) {
             player.MoveBack();
         }
@@ -357,6 +364,9 @@ namespace Fall2020_CSC403_Project {
             frm_Pick_Up.Show();
         }
 
+        /// <summary>
+        /// handles the keyboard interaction of the player
+        /// </summary>
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
