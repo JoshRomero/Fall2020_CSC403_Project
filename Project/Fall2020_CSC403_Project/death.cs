@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Fall2020_CSC403_Project.code;
+
 
 namespace Fall2020_CSC403_Project
 {
@@ -28,11 +22,6 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
-        public void death_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnReplay_Click(object sender, EventArgs e)
         {
             instance = null;
@@ -45,6 +34,20 @@ namespace Fall2020_CSC403_Project
             instance = null;
             Program.end_game();
             Close();
+        }
+        /// <summary>
+        /// this disables the cancel button on the top right of the screen
+        /// </summary>
+        private void Form1_Closing(Object sender, CancelEventArgs e)
+        {
+            if (instance == null)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

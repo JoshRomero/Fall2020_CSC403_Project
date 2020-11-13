@@ -1,6 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
-using System;
-
+﻿
 namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>

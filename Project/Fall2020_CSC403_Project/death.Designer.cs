@@ -67,7 +67,7 @@
             this.DoubleBuffered = true;
             this.Name = "death";
             this.Text = "death";
-            this.Load += new System.EventHandler(this.death_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             this.ResumeLayout(false);
 
         }
