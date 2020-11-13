@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
+/// <summary>
+/// deals with the location of the character
+/// </summary>
 namespace Fall2020_CSC403_Project.code {
   public struct Vector2 {
     public float x;

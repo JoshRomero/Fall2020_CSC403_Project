@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
+/// <summary>
+/// deals with the creation of the Items
+/// </summary>
 namespace Fall2020_CSC403_Project.code
 {
 
@@ -35,12 +33,20 @@ namespace Fall2020_CSC403_Project.code
             Collider.MovePosition(-100, -100);
         }
 
+        /// <summary>
+        /// puts item at the specified x and y 
+        /// </summary>
         public void return_item(int x, int y)
         {
             Position = new Vector2(x, y);
             Collider.MovePosition(x, y);
         }
-
+        /// <summary>
+        /// puts item at the specified x and y  and returns true
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public bool drop_item(int x, int y)
         {
             Position = new Vector2(x, y);

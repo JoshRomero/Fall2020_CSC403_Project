@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -18,10 +14,16 @@ namespace Fall2020_CSC403_Project.code {
       Health = MaxHealth;
     }
 
+    /// <summary>
+    /// adds the health modification depending on the amount and strenght (amount * strength = damage)
+    /// </summary>
     public void OnAttack(int amount, int strength) {
       AttackEvent((int)(amount * strength));
     }
 
+    /// <summary>
+    /// changes the health either damage of healing
+    /// </summary>
     public void AlterHealth(int amount, string act = null) {
             if (act == "heal")
             {
@@ -41,6 +43,10 @@ namespace Fall2020_CSC403_Project.code {
             }
 
     }
+        /// <summary>
+        ///  resets the health of player on a global scale
+        /// </summary>
+        /// <param name="per_health"></param>
         public void ResetWithPersistents(int per_health)
         {
             Health = per_health;
