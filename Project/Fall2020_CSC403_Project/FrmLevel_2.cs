@@ -2,7 +2,6 @@
 using Fall2020_CSC403_Project.code;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
@@ -141,7 +140,7 @@ namespace Fall2020_CSC403_Project
             // turns Mr. peanut into baby peanut if at 20% or under
             if (player.Health <= (player.MaxHealth * .2))
             {
-                // changes peanut to superpeanut if they have thor's hammer and increases strenght
+                // changes Baby Peanut to Super Baby Peanut if they have thor's hammer and increases strenght
                 if (Program.bag.has_hammer())
                 {
                     picPlayer2.BackgroundImage = Properties.Resources.superbabyPeanut;
@@ -153,6 +152,7 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                // turns Mr. Peanut into Blue Super Peanut if he has hammer
                 if (Program.bag.has_hammer())
                 {
                     picPlayer2.BackgroundImage = Properties.Resources.superplayer;
@@ -168,10 +168,13 @@ namespace Fall2020_CSC403_Project
             {
                 player.MoveBack();
             }
+
+            //check collision with items
             else if (HitAItem(player, potion))
             {
                 Pick_Up(potion);
             }
+
             // check collision with enemies
             if (HitAChar(player, enemyBatie))
             {
@@ -181,6 +184,8 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(cookieMonster);
             }
+
+            //check collision with weapons
             else if (HitAItem(player, knife))
             {
                 if (Program.bag.has_weapon())
@@ -203,6 +208,7 @@ namespace Fall2020_CSC403_Project
                     Pick_Up(bow);
                 }
             }
+
             // update player's picture box
             picPlayer2.Location = new Point((int)player.Position.x, (int)player.Position.y);
             picbat.Location = new Point((int)enemyBatie.Position.x, (int)enemyBatie.Position.y);
@@ -254,7 +260,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        // player hit a item go to pick it up if it is a weapon and they already have a weapon then trade it
+        // when player hits an item go to pick it up; if it is a weapon and they already have a weapon then trade it
         private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();

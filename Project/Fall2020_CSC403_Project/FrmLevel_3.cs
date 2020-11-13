@@ -2,7 +2,6 @@
 using Fall2020_CSC403_Project.code;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
@@ -29,7 +28,7 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 5;
 
 
-            // the position of the onject 
+            // the position of the object 
             player = new Player(CreatePosition(picPlayer3), CreateCollider(picPlayer3, PADDING));
             potion = new Item(CreatePosition(pictpotion2), CreateCollider(pictpotion2, PADDING));
             pepsiMan = new Enemy(CreatePosition(picPepsi), CreateCollider(picPepsi, PADDING));
@@ -69,7 +68,7 @@ namespace Fall2020_CSC403_Project
             timeBegin = DateTime.Now;
         }
 
-
+        
         private Vector2 CreatePosition(PictureBox pic)
         {
             return new Vector2(pic.Location.X, pic.Location.Y);
@@ -96,6 +95,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetWithPersistents(Program.persistent_health);
 
+            //removes the hammer from the field if the player already has it
             if (Program.bag.has_hammer())
             {
                 hammer.remove_item();
@@ -116,7 +116,7 @@ namespace Fall2020_CSC403_Project
             // turns Mr. peanut into baby peanut if at 20% or under
             if (player.Health <= (player.MaxHealth * .2))
             {
-                // changes peanut to superpeanut if they have thor's hammer and increases strenght
+                // changes Baby Peanut to Super Baby Peanut if they have thor's hammer and increases strenght
                 if (Program.bag.has_hammer())
                 {
                     picPlayer3.BackgroundImage = Properties.Resources.superbabyPeanut;
@@ -128,6 +128,7 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                // turns Mr. Peanut into Blue Super Peanut if he has hammer
                 if (Program.bag.has_hammer())
                 {
                     picPlayer3.BackgroundImage = Properties.Resources.superplayer;
@@ -143,6 +144,8 @@ namespace Fall2020_CSC403_Project
             {
                 player.MoveBack();
             }
+
+            //check collision with items
             else if (HitAItem(player, potion))
             {
                 Pick_Up(potion);
@@ -151,6 +154,7 @@ namespace Fall2020_CSC403_Project
             {
                 Pick_Up(hammer);
             }
+
             // check collision with enemies
             if (HitAChar(player, goldenBidoof))
             {
@@ -193,6 +197,7 @@ namespace Fall2020_CSC403_Project
         {
             return you.Collider.Intersects(other.Collider);
         }
+        // if player hits an item check
         private bool HitAItem(Character you, Item other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -208,7 +213,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        // player hit a item go to pick it up if it is a weapon and they already have a weapon then trade it
+        // when player hits an item go to pick it up; if it is a weapon and they already have a weapon then trade it
         private void Pick_Up(Item item, Item item2 = null)
         {
             player.ResetMoveSpeed();
