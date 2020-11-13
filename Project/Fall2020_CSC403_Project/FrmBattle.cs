@@ -170,6 +170,8 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
             }
+            new System.Media.SoundPlayer(Properties.Resources.attack).PlaySync();
+
         }
         /// <summary>
         /// increases the health of the player when the potion button is pressed
@@ -218,6 +220,8 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         private void Stab_Click(object sender, EventArgs e)
         {
+            new System.Media.SoundPlayer(Properties.Resources.stab).PlaySync();
+
             player.OnAttack(-7, Program.strength);
             
             if (enemy.Health > 0)
@@ -279,6 +283,8 @@ namespace Fall2020_CSC403_Project
 
         private void Death()
         {
+            new System.Media.SoundPlayer(Properties.Resources.death_sfx).PlaySync();
+
             frmDeath = death.GetInstance();
             frmDeath.Show();
         }

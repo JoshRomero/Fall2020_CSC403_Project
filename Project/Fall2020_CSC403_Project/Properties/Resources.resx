@@ -187,8 +187,22 @@
   <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <data name="death_sfx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral</value>
+  </data>
+     <data name="stab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\stab.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral</value>
+  </data>
+     <data name="pick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\pick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral</value>
+  </data><data name="attack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\attack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral</value>
+  </data>
+    <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral</value>
+  </data>
+    <data name="level_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\level_1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="death" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\death.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

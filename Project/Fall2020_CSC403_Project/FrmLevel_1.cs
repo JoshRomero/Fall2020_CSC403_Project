@@ -23,6 +23,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private Frm_Pick_Up1 frm_Pick_Up;
     private wall4_NoHammer wall4_nohammer;
+        private System.Media.SoundPlayer level_1_sound;
 
     public FrmLevel_1() {
           if(Program.last_level == 2 && !Program.replay)
@@ -37,8 +38,9 @@ namespace Fall2020_CSC403_Project {
                     Program.replay = false;
                 }
             }
-      
-    }
+
+            level_1_sound = new System.Media.SoundPlayer(Properties.Resources.level_1);
+        }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
@@ -92,9 +94,11 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
-    }
+      level_1_sound.PlayLooping();
 
-    private Vector2 CreatePosition(PictureBox pic) {
+        }
+
+        private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
 

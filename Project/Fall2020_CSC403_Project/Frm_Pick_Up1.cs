@@ -102,6 +102,8 @@ namespace Fall2020_CSC403_Project
                 }
             }
 
+            new System.Media.SoundPlayer(Properties.Resources.pick).PlaySync();
+
         }
 
         /// <summary>
